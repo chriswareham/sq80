@@ -1,0 +1,24 @@
+               Ensoniq SQ-80 Patch Editor and Librarian
+               ----------------------------------------
+
+This is a simple patch editor and librarian for Ensoniq's SQ-80 synths.
+
+To compile, you require the following:
+
+ NetBSD or Linux
+ GTK 3
+ PortMidi
+
+You also require a MIDI interface that is supported by NetBSD or Linux.
+
+While developing the current version of this program, I used the
+following:
+
+ NetBSD 9
+ Debian 10
+ Akai EIE MIDI interface
+ Ensoniq SQ-80
+
+Please send any bug reports, questions or comments to the author:
+
+ Chris Wareham <chris@chriswareham.net>
