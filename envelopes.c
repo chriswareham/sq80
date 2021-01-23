@@ -232,6 +232,18 @@ show_envelopes_dialog(EnvelopesDialog *widgets)
 void
 set_envelopes_parameters(EnvelopesDialog *widgets, Patch *patch)
 {
+    printf("Setting env 1 parameters: level 1 %d, level 2 %d, level 3 %d, vel level %d, vel attack %d, time 1 %d, time 2 %d, time 3 %d, time 4 %d, key scaling %d\n",
+        patch->parameters[PARAMETER_ENV1_LEVEL1],
+        patch->parameters[PARAMETER_ENV1_LEVEL2],
+        patch->parameters[PARAMETER_ENV1_LEVEL3],
+        patch->parameters[PARAMETER_ENV1_VELOCITY_LEVEL],
+        patch->parameters[PARAMETER_ENV1_VELOCITY_ATTACK],
+        patch->parameters[PARAMETER_ENV1_TIME1],
+        patch->parameters[PARAMETER_ENV1_TIME2],
+        patch->parameters[PARAMETER_ENV1_TIME3],
+        patch->parameters[PARAMETER_ENV1_TIME4],
+        patch->parameters[PARAMETER_ENV1_KEYBOARD_DECAY_SCALING]);
+
     gtk_range_set_value(GTK_RANGE(widgets->env1.level1), patch->parameters[PARAMETER_ENV1_LEVEL1]);
     gtk_range_set_value(GTK_RANGE(widgets->env1.level2), patch->parameters[PARAMETER_ENV1_LEVEL2]);
     gtk_range_set_value(GTK_RANGE(widgets->env1.level3), patch->parameters[PARAMETER_ENV1_LEVEL3]);
@@ -242,6 +254,18 @@ set_envelopes_parameters(EnvelopesDialog *widgets, Patch *patch)
     gtk_range_set_value(GTK_RANGE(widgets->env1.time3), patch->parameters[PARAMETER_ENV1_TIME3]);
     gtk_range_set_value(GTK_RANGE(widgets->env1.time4), patch->parameters[PARAMETER_ENV1_TIME4]);
     gtk_range_set_value(GTK_RANGE(widgets->env1.keyboard_decay_scaling), patch->parameters[PARAMETER_ENV1_KEYBOARD_DECAY_SCALING]);
+
+    printf("Setting env 2 parameters: level 1 %d, level 2 %d, level 3 %d, vel level %d, vel attack %d, time 1 %d, time 2 %d, time 3 %d, time 4 %d, key scaling %d\n",
+        patch->parameters[PARAMETER_ENV2_LEVEL1],
+        patch->parameters[PARAMETER_ENV2_LEVEL2],
+        patch->parameters[PARAMETER_ENV2_LEVEL3],
+        patch->parameters[PARAMETER_ENV2_VELOCITY_LEVEL],
+        patch->parameters[PARAMETER_ENV2_VELOCITY_ATTACK],
+        patch->parameters[PARAMETER_ENV2_TIME1],
+        patch->parameters[PARAMETER_ENV2_TIME2],
+        patch->parameters[PARAMETER_ENV2_TIME3],
+        patch->parameters[PARAMETER_ENV2_TIME4],
+        patch->parameters[PARAMETER_ENV2_KEYBOARD_DECAY_SCALING]);
 
     gtk_range_set_value(GTK_RANGE(widgets->env2.level1), patch->parameters[PARAMETER_ENV2_LEVEL1]);
     gtk_range_set_value(GTK_RANGE(widgets->env2.level2), patch->parameters[PARAMETER_ENV2_LEVEL2]);
@@ -254,6 +278,18 @@ set_envelopes_parameters(EnvelopesDialog *widgets, Patch *patch)
     gtk_range_set_value(GTK_RANGE(widgets->env2.time4), patch->parameters[PARAMETER_ENV2_TIME4]);
     gtk_range_set_value(GTK_RANGE(widgets->env2.keyboard_decay_scaling), patch->parameters[PARAMETER_ENV2_KEYBOARD_DECAY_SCALING]);
 
+    printf("Setting env 3 parameters: level 1 %d, level 2 %d, level 3 %d, vel level %d, vel attack %d, time 1 %d, time 2 %d, time 3 %d, time 4 %d, key scaling %d\n",
+        patch->parameters[PARAMETER_ENV3_LEVEL1],
+        patch->parameters[PARAMETER_ENV3_LEVEL2],
+        patch->parameters[PARAMETER_ENV3_LEVEL3],
+        patch->parameters[PARAMETER_ENV3_VELOCITY_LEVEL],
+        patch->parameters[PARAMETER_ENV3_VELOCITY_ATTACK],
+        patch->parameters[PARAMETER_ENV3_TIME1],
+        patch->parameters[PARAMETER_ENV3_TIME2],
+        patch->parameters[PARAMETER_ENV3_TIME3],
+        patch->parameters[PARAMETER_ENV3_TIME4],
+        patch->parameters[PARAMETER_ENV3_KEYBOARD_DECAY_SCALING]);
+
     gtk_range_set_value(GTK_RANGE(widgets->env3.level1), patch->parameters[PARAMETER_ENV3_LEVEL1]);
     gtk_range_set_value(GTK_RANGE(widgets->env3.level2), patch->parameters[PARAMETER_ENV3_LEVEL2]);
     gtk_range_set_value(GTK_RANGE(widgets->env3.level3), patch->parameters[PARAMETER_ENV3_LEVEL3]);
@@ -264,6 +300,18 @@ set_envelopes_parameters(EnvelopesDialog *widgets, Patch *patch)
     gtk_range_set_value(GTK_RANGE(widgets->env3.time3), patch->parameters[PARAMETER_ENV3_TIME3]);
     gtk_range_set_value(GTK_RANGE(widgets->env3.time4), patch->parameters[PARAMETER_ENV3_TIME4]);
     gtk_range_set_value(GTK_RANGE(widgets->env3.keyboard_decay_scaling), patch->parameters[PARAMETER_ENV3_KEYBOARD_DECAY_SCALING]);
+
+    printf("Setting env 4 parameters: level 1 %d, level 2 %d, level 3 %d, vel level %d, vel attack %d, time 1 %d, time 2 %d, time 3 %d, time 4 %d, key scaling %d\n",
+        patch->parameters[PARAMETER_ENV4_LEVEL1],
+        patch->parameters[PARAMETER_ENV4_LEVEL2],
+        patch->parameters[PARAMETER_ENV4_LEVEL3],
+        patch->parameters[PARAMETER_ENV4_VELOCITY_LEVEL],
+        patch->parameters[PARAMETER_ENV4_VELOCITY_ATTACK],
+        patch->parameters[PARAMETER_ENV4_TIME1],
+        patch->parameters[PARAMETER_ENV4_TIME2],
+        patch->parameters[PARAMETER_ENV4_TIME3],
+        patch->parameters[PARAMETER_ENV4_TIME4],
+        patch->parameters[PARAMETER_ENV4_KEYBOARD_DECAY_SCALING]);
 
     gtk_range_set_value(GTK_RANGE(widgets->env4.level1), patch->parameters[PARAMETER_ENV4_LEVEL1]);
     gtk_range_set_value(GTK_RANGE(widgets->env4.level2), patch->parameters[PARAMETER_ENV4_LEVEL2]);
