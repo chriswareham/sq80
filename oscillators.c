@@ -101,290 +101,290 @@ static gchar *waves[] = {
 };
 
 static ComboBoxEntry osc1_mod1_srcs[] = {
-    { "LFO 1",               0x44, 0x00 },
-    { "LFO 2",               0x44, 0x08 },
-    { "LFO 3",               0x44, 0x10 },
-    { "Envelope 1",          0x44, 0x18 },
-    { "Envelope 2",          0x44, 0x20 },
-    { "Envelope 3",          0x44, 0x28 },
-    { "Envelope 4",          0x44, 0x30 },
-    { "Velocity",            0x44, 0x38 },
-    { "Velocity X",          0x44, 0x40 },
-    { "Keyboard",            0x44, 0x48 },
-    { "Keyboard 2",          0x44, 0x50 },
-    { "Modulation Wheel",    0x44, 0x58 },
-    { "Foot Pedal",          0x44, 0x60 },
-    { "External Controller", 0x44, 0x68 },
-    { "Pressure",            0x44, 0x70 },
-    { "Off",                 0x44, 0x78 }
+    { "LFO 1",               PARAMETER_OSC1_MOD1_SRC, 0x00 },
+    { "LFO 2",               PARAMETER_OSC1_MOD1_SRC, 0x08 },
+    { "LFO 3",               PARAMETER_OSC1_MOD1_SRC, 0x10 },
+    { "Envelope 1",          PARAMETER_OSC1_MOD1_SRC, 0x18 },
+    { "Envelope 2",          PARAMETER_OSC1_MOD1_SRC, 0x20 },
+    { "Envelope 3",          PARAMETER_OSC1_MOD1_SRC, 0x28 },
+    { "Envelope 4",          PARAMETER_OSC1_MOD1_SRC, 0x30 },
+    { "Velocity",            PARAMETER_OSC1_MOD1_SRC, 0x38 },
+    { "Velocity X",          PARAMETER_OSC1_MOD1_SRC, 0x40 },
+    { "Keyboard",            PARAMETER_OSC1_MOD1_SRC, 0x48 },
+    { "Keyboard 2",          PARAMETER_OSC1_MOD1_SRC, 0x50 },
+    { "Modulation Wheel",    PARAMETER_OSC1_MOD1_SRC, 0x58 },
+    { "Foot Pedal",          PARAMETER_OSC1_MOD1_SRC, 0x60 },
+    { "External Controller", PARAMETER_OSC1_MOD1_SRC, 0x68 },
+    { "Pressure",            PARAMETER_OSC1_MOD1_SRC, 0x70 },
+    { "Off",                 PARAMETER_OSC1_MOD1_SRC, 0x78 }
 };
 
 static ScaleParams osc1_mod1_depth_params = {
-    .parameter = 0x45,
+    .parameter = PARAMETER_OSC1_MOD1_DEPTH,
     .offset = 64
 };
 
 static ComboBoxEntry osc1_mod2_srcs[] = {
-    { "LFO 1",               0x46, 0x00 },
-    { "LFO 2",               0x46, 0x08 },
-    { "LFO 3",               0x46, 0x10 },
-    { "Envelope 1",          0x46, 0x18 },
-    { "Envelope 2",          0x46, 0x20 },
-    { "Envelope 3",          0x46, 0x28 },
-    { "Envelope 4",          0x46, 0x30 },
-    { "Velocity",            0x46, 0x38 },
-    { "Velocity X",          0x46, 0x40 },
-    { "Keyboard",            0x46, 0x48 },
-    { "Keyboard 2",          0x46, 0x50 },
-    { "Modulation Wheel",    0x46, 0x58 },
-    { "Foot Pedal",          0x46, 0x60 },
-    { "External Controller", 0x46, 0x68 },
-    { "Pressure",            0x46, 0x70 },
-    { "Off",                 0x46, 0x78 }
+    { "LFO 1",               PARAMETER_OSC1_MOD2_SRC, 0x00 },
+    { "LFO 2",               PARAMETER_OSC1_MOD2_SRC, 0x08 },
+    { "LFO 3",               PARAMETER_OSC1_MOD2_SRC, 0x10 },
+    { "Envelope 1",          PARAMETER_OSC1_MOD2_SRC, 0x18 },
+    { "Envelope 2",          PARAMETER_OSC1_MOD2_SRC, 0x20 },
+    { "Envelope 3",          PARAMETER_OSC1_MOD2_SRC, 0x28 },
+    { "Envelope 4",          PARAMETER_OSC1_MOD2_SRC, 0x30 },
+    { "Velocity",            PARAMETER_OSC1_MOD2_SRC, 0x38 },
+    { "Velocity X",          PARAMETER_OSC1_MOD2_SRC, 0x40 },
+    { "Keyboard",            PARAMETER_OSC1_MOD2_SRC, 0x48 },
+    { "Keyboard 2",          PARAMETER_OSC1_MOD2_SRC, 0x50 },
+    { "Modulation Wheel",    PARAMETER_OSC1_MOD2_SRC, 0x58 },
+    { "Foot Pedal",          PARAMETER_OSC1_MOD2_SRC, 0x60 },
+    { "External Controller", PARAMETER_OSC1_MOD2_SRC, 0x68 },
+    { "Pressure",            PARAMETER_OSC1_MOD2_SRC, 0x70 },
+    { "Off",                 PARAMETER_OSC1_MOD2_SRC, 0x78 }
 };
 
 static ScaleParams osc1_mod2_depth_params = {
-    .parameter = 0x47,
+    .parameter = PARAMETER_OSC1_MOD2_DEPTH,
     .offset = 64
 };
 
 static ComboBoxEntry osc2_mod1_srcs[] = {
-    { "LFO 1",               0x4c, 0x00 },
-    { "LFO 2",               0x4c, 0x08 },
-    { "LFO 3",               0x4c, 0x10 },
-    { "Envelope 1",          0x4c, 0x18 },
-    { "Envelope 2",          0x4c, 0x20 },
-    { "Envelope 3",          0x4c, 0x28 },
-    { "Envelope 4",          0x4c, 0x30 },
-    { "Velocity",            0x4c, 0x38 },
-    { "Velocity X",          0x4c, 0x40 },
-    { "Keyboard",            0x4c, 0x48 },
-    { "Keyboard 2",          0x4c, 0x50 },
-    { "Modulation Wheel",    0x4c, 0x58 },
-    { "Foot Pedal",          0x4c, 0x60 },
-    { "External Controller", 0x4c, 0x68 },
-    { "Pressure",            0x4c, 0x70 },
-    { "Off",                 0x4c, 0x78 }
+    { "LFO 1",               PARAMETER_OSC2_MOD1_SRC, 0x00 },
+    { "LFO 2",               PARAMETER_OSC2_MOD1_SRC, 0x08 },
+    { "LFO 3",               PARAMETER_OSC2_MOD1_SRC, 0x10 },
+    { "Envelope 1",          PARAMETER_OSC2_MOD1_SRC, 0x18 },
+    { "Envelope 2",          PARAMETER_OSC2_MOD1_SRC, 0x20 },
+    { "Envelope 3",          PARAMETER_OSC2_MOD1_SRC, 0x28 },
+    { "Envelope 4",          PARAMETER_OSC2_MOD1_SRC, 0x30 },
+    { "Velocity",            PARAMETER_OSC2_MOD1_SRC, 0x38 },
+    { "Velocity X",          PARAMETER_OSC2_MOD1_SRC, 0x40 },
+    { "Keyboard",            PARAMETER_OSC2_MOD1_SRC, 0x48 },
+    { "Keyboard 2",          PARAMETER_OSC2_MOD1_SRC, 0x50 },
+    { "Modulation Wheel",    PARAMETER_OSC2_MOD1_SRC, 0x58 },
+    { "Foot Pedal",          PARAMETER_OSC2_MOD1_SRC, 0x60 },
+    { "External Controller", PARAMETER_OSC2_MOD1_SRC, 0x68 },
+    { "Pressure",            PARAMETER_OSC2_MOD1_SRC, 0x70 },
+    { "Off",                 PARAMETER_OSC2_MOD1_SRC, 0x78 }
 };
 
 static ScaleParams osc2_mod1_depth_params = {
-    .parameter = 0x4d,
+    .parameter = PARAMETER_OSC2_MOD1_DEPTH,
     .offset = 64
 };
 
 static ComboBoxEntry osc2_mod2_srcs[] = {
-    { "LFO 1",               0x4e, 0x00 },
-    { "LFO 2",               0x4e, 0x08 },
-    { "LFO 3",               0x4e, 0x10 },
-    { "Envelope 1",          0x4e, 0x18 },
-    { "Envelope 2",          0x4e, 0x20 },
-    { "Envelope 3",          0x4e, 0x28 },
-    { "Envelope 4",          0x4e, 0x30 },
-    { "Velocity",            0x4e, 0x38 },
-    { "Velocity X",          0x4e, 0x40 },
-    { "Keyboard",            0x4e, 0x48 },
-    { "Keyboard 2",          0x4e, 0x50 },
-    { "Modulation Wheel",    0x4e, 0x58 },
-    { "Foot Pedal",          0x4e, 0x60 },
-    { "External Controller", 0x4e, 0x68 },
-    { "Pressure",            0x4e, 0x70 },
-    { "Off",                 0x4e, 0x78 }
+    { "LFO 1",               PARAMETER_OSC2_MOD2_SRC, 0x00 },
+    { "LFO 2",               PARAMETER_OSC2_MOD2_SRC, 0x08 },
+    { "LFO 3",               PARAMETER_OSC2_MOD2_SRC, 0x10 },
+    { "Envelope 1",          PARAMETER_OSC2_MOD2_SRC, 0x18 },
+    { "Envelope 2",          PARAMETER_OSC2_MOD2_SRC, 0x20 },
+    { "Envelope 3",          PARAMETER_OSC2_MOD2_SRC, 0x28 },
+    { "Envelope 4",          PARAMETER_OSC2_MOD2_SRC, 0x30 },
+    { "Velocity",            PARAMETER_OSC2_MOD2_SRC, 0x38 },
+    { "Velocity X",          PARAMETER_OSC2_MOD2_SRC, 0x40 },
+    { "Keyboard",            PARAMETER_OSC2_MOD2_SRC, 0x48 },
+    { "Keyboard 2",          PARAMETER_OSC2_MOD2_SRC, 0x50 },
+    { "Modulation Wheel",    PARAMETER_OSC2_MOD2_SRC, 0x58 },
+    { "Foot Pedal",          PARAMETER_OSC2_MOD2_SRC, 0x60 },
+    { "External Controller", PARAMETER_OSC2_MOD2_SRC, 0x68 },
+    { "Pressure",            PARAMETER_OSC2_MOD2_SRC, 0x70 },
+    { "Off",                 PARAMETER_OSC2_MOD2_SRC, 0x78 }
 };
 
 static ScaleParams osc2_mod2_depth_params = {
-    .parameter = 0x47,
+    .parameter = PARAMETER_OSC2_MOD2_DEPTH,
     .offset = 64
 };
 
 static ComboBoxEntry osc3_mod1_srcs[] = {
-    { "LFO 1",               0x54, 0x00 },
-    { "LFO 2",               0x54, 0x08 },
-    { "LFO 3",               0x54, 0x10 },
-    { "Envelope 1",          0x54, 0x18 },
-    { "Envelope 2",          0x54, 0x20 },
-    { "Envelope 3",          0x54, 0x28 },
-    { "Envelope 4",          0x54, 0x30 },
-    { "Velocity",            0x54, 0x38 },
-    { "Velocity X",          0x54, 0x40 },
-    { "Keyboard",            0x54, 0x48 },
-    { "Keyboard 2",          0x54, 0x50 },
-    { "Modulation Wheel",    0x54, 0x58 },
-    { "Foot Pedal",          0x54, 0x60 },
-    { "External Controller", 0x54, 0x68 },
-    { "Pressure",            0x54, 0x70 },
-    { "Off",                 0x54, 0x78 }
+    { "LFO 1",               PARAMETER_OSC3_MOD1_SRC, 0x00 },
+    { "LFO 2",               PARAMETER_OSC3_MOD1_SRC, 0x08 },
+    { "LFO 3",               PARAMETER_OSC3_MOD1_SRC, 0x10 },
+    { "Envelope 1",          PARAMETER_OSC3_MOD1_SRC, 0x18 },
+    { "Envelope 2",          PARAMETER_OSC3_MOD1_SRC, 0x20 },
+    { "Envelope 3",          PARAMETER_OSC3_MOD1_SRC, 0x28 },
+    { "Envelope 4",          PARAMETER_OSC3_MOD1_SRC, 0x30 },
+    { "Velocity",            PARAMETER_OSC3_MOD1_SRC, 0x38 },
+    { "Velocity X",          PARAMETER_OSC3_MOD1_SRC, 0x40 },
+    { "Keyboard",            PARAMETER_OSC3_MOD1_SRC, 0x48 },
+    { "Keyboard 2",          PARAMETER_OSC3_MOD1_SRC, 0x50 },
+    { "Modulation Wheel",    PARAMETER_OSC3_MOD1_SRC, 0x58 },
+    { "Foot Pedal",          PARAMETER_OSC3_MOD1_SRC, 0x60 },
+    { "External Controller", PARAMETER_OSC3_MOD1_SRC, 0x68 },
+    { "Pressure",            PARAMETER_OSC3_MOD1_SRC, 0x70 },
+    { "Off",                 PARAMETER_OSC3_MOD1_SRC, 0x78 }
 };
 
 static ScaleParams osc3_mod1_depth_params = {
-    .parameter = 0x55,
+    .parameter = PARAMETER_OSC3_MOD1_DEPTH,
     .offset = 64
 };
 
 static ComboBoxEntry osc3_mod2_srcs[] = {
-    { "LFO 1",               0x56, 0x00 },
-    { "LFO 2",               0x56, 0x08 },
-    { "LFO 3",               0x56, 0x10 },
-    { "Envelope 1",          0x56, 0x18 },
-    { "Envelope 2",          0x56, 0x20 },
-    { "Envelope 3",          0x56, 0x28 },
-    { "Envelope 4",          0x56, 0x30 },
-    { "Velocity",            0x56, 0x38 },
-    { "Velocity X",          0x56, 0x40 },
-    { "Keyboard",            0x56, 0x48 },
-    { "Keyboard 2",          0x56, 0x50 },
-    { "Modulation Wheel",    0x56, 0x58 },
-    { "Foot Pedal",          0x56, 0x60 },
-    { "External Controller", 0x56, 0x68 },
-    { "Pressure",            0x56, 0x70 },
-    { "Off",                 0x56, 0x78 }
+    { "LFO 1",               PARAMETER_OSC3_MOD2_SRC, 0x00 },
+    { "LFO 2",               PARAMETER_OSC3_MOD2_SRC, 0x08 },
+    { "LFO 3",               PARAMETER_OSC3_MOD2_SRC, 0x10 },
+    { "Envelope 1",          PARAMETER_OSC3_MOD2_SRC, 0x18 },
+    { "Envelope 2",          PARAMETER_OSC3_MOD2_SRC, 0x20 },
+    { "Envelope 3",          PARAMETER_OSC3_MOD2_SRC, 0x28 },
+    { "Envelope 4",          PARAMETER_OSC3_MOD2_SRC, 0x30 },
+    { "Velocity",            PARAMETER_OSC3_MOD2_SRC, 0x38 },
+    { "Velocity X",          PARAMETER_OSC3_MOD2_SRC, 0x40 },
+    { "Keyboard",            PARAMETER_OSC3_MOD2_SRC, 0x48 },
+    { "Keyboard 2",          PARAMETER_OSC3_MOD2_SRC, 0x50 },
+    { "Modulation Wheel",    PARAMETER_OSC3_MOD2_SRC, 0x58 },
+    { "Foot Pedal",          PARAMETER_OSC3_MOD2_SRC, 0x60 },
+    { "External Controller", PARAMETER_OSC3_MOD2_SRC, 0x68 },
+    { "Pressure",            PARAMETER_OSC3_MOD2_SRC, 0x70 },
+    { "Off",                 PARAMETER_OSC3_MOD2_SRC, 0x78 }
 };
 
 static ScaleParams osc3_mod2_depth_params = {
-    .parameter = 0x57,
+    .parameter = PARAMETER_OSC3_MOD2_DEPTH,
     .offset = 64
 };
 
 static ComboBoxEntry dca1_mod1_srcs[] = {
-    { "LFO 1",               0x5a, 0x00 },
-    { "LFO 2",               0x5a, 0x08 },
-    { "LFO 3",               0x5a, 0x10 },
-    { "Envelope 1",          0x5a, 0x18 },
-    { "Envelope 2",          0x5a, 0x20 },
-    { "Envelope 3",          0x5a, 0x28 },
-    { "Envelope 4",          0x5a, 0x30 },
-    { "Velocity",            0x5a, 0x38 },
-    { "Velocity X",          0x5a, 0x40 },
-    { "Keyboard",            0x5a, 0x48 },
-    { "Keyboard 2",          0x5a, 0x50 },
-    { "Modulation Wheel",    0x5a, 0x58 },
-    { "Foot Pedal",          0x5a, 0x60 },
-    { "External Controller", 0x5a, 0x68 },
-    { "Pressure",            0x5a, 0x70 },
-    { "Off",                 0x5a, 0x78 }
+    { "LFO 1",               PARAMETER_DCA1_MOD1_SRC, 0x00 },
+    { "LFO 2",               PARAMETER_DCA1_MOD1_SRC, 0x08 },
+    { "LFO 3",               PARAMETER_DCA1_MOD1_SRC, 0x10 },
+    { "Envelope 1",          PARAMETER_DCA1_MOD1_SRC, 0x18 },
+    { "Envelope 2",          PARAMETER_DCA1_MOD1_SRC, 0x20 },
+    { "Envelope 3",          PARAMETER_DCA1_MOD1_SRC, 0x28 },
+    { "Envelope 4",          PARAMETER_DCA1_MOD1_SRC, 0x30 },
+    { "Velocity",            PARAMETER_DCA1_MOD1_SRC, 0x38 },
+    { "Velocity X",          PARAMETER_DCA1_MOD1_SRC, 0x40 },
+    { "Keyboard",            PARAMETER_DCA1_MOD1_SRC, 0x48 },
+    { "Keyboard 2",          PARAMETER_DCA1_MOD1_SRC, 0x50 },
+    { "Modulation Wheel",    PARAMETER_DCA1_MOD1_SRC, 0x58 },
+    { "Foot Pedal",          PARAMETER_DCA1_MOD1_SRC, 0x60 },
+    { "External Controller", PARAMETER_DCA1_MOD1_SRC, 0x68 },
+    { "Pressure",            PARAMETER_DCA1_MOD1_SRC, 0x70 },
+    { "Off",                 PARAMETER_DCA1_MOD1_SRC, 0x78 }
 };
 
 static ScaleParams dca1_mod1_depth_params = {
-    .parameter = 0x5b,
+    .parameter = PARAMETER_DCA1_MOD1_DEPTH,
     .offset = 64
 };
 
 static ComboBoxEntry dca1_mod2_srcs[] = {
-    { "LFO 1",               0x5c, 0x00 },
-    { "LFO 2",               0x5c, 0x08 },
-    { "LFO 3",               0x5c, 0x10 },
-    { "Envelope 1",          0x5c, 0x18 },
-    { "Envelope 2",          0x5c, 0x20 },
-    { "Envelope 3",          0x5c, 0x28 },
-    { "Envelope 4",          0x5c, 0x30 },
-    { "Velocity",            0x5c, 0x38 },
-    { "Velocity X",          0x5c, 0x40 },
-    { "Keyboard",            0x5c, 0x48 },
-    { "Keyboard 2",          0x5c, 0x50 },
-    { "Modulation Wheel",    0x5c, 0x58 },
-    { "Foot Pedal",          0x5c, 0x60 },
-    { "External Controller", 0x5c, 0x68 },
-    { "Pressure",            0x5c, 0x70 },
-    { "Off",                 0x5c, 0x78 }
+    { "LFO 1",               PARAMETER_DCA1_MOD2_SRC, 0x00 },
+    { "LFO 2",               PARAMETER_DCA1_MOD2_SRC, 0x08 },
+    { "LFO 3",               PARAMETER_DCA1_MOD2_SRC, 0x10 },
+    { "Envelope 1",          PARAMETER_DCA1_MOD2_SRC, 0x18 },
+    { "Envelope 2",          PARAMETER_DCA1_MOD2_SRC, 0x20 },
+    { "Envelope 3",          PARAMETER_DCA1_MOD2_SRC, 0x28 },
+    { "Envelope 4",          PARAMETER_DCA1_MOD2_SRC, 0x30 },
+    { "Velocity",            PARAMETER_DCA1_MOD2_SRC, 0x38 },
+    { "Velocity X",          PARAMETER_DCA1_MOD2_SRC, 0x40 },
+    { "Keyboard",            PARAMETER_DCA1_MOD2_SRC, 0x48 },
+    { "Keyboard 2",          PARAMETER_DCA1_MOD2_SRC, 0x50 },
+    { "Modulation Wheel",    PARAMETER_DCA1_MOD2_SRC, 0x58 },
+    { "Foot Pedal",          PARAMETER_DCA1_MOD2_SRC, 0x60 },
+    { "External Controller", PARAMETER_DCA1_MOD2_SRC, 0x68 },
+    { "Pressure",            PARAMETER_DCA1_MOD2_SRC, 0x70 },
+    { "Off",                 PARAMETER_DCA1_MOD2_SRC, 0x78 }
 };
 
 static ScaleParams dca1_mod2_depth_params = {
-    .parameter = 0x5d,
+    .parameter = PARAMETER_DCA2_MOD1_DEPTH,
     .offset = 64
 };
 
 static ComboBoxEntry dca2_mod1_srcs[] = {
-    { "LFO 1",               0x60, 0x00 },
-    { "LFO 2",               0x60, 0x08 },
-    { "LFO 3",               0x60, 0x10 },
-    { "Envelope 1",          0x60, 0x18 },
-    { "Envelope 2",          0x60, 0x20 },
-    { "Envelope 3",          0x60, 0x28 },
-    { "Envelope 4",          0x60, 0x30 },
-    { "Velocity",            0x60, 0x38 },
-    { "Velocity X",          0x60, 0x40 },
-    { "Keyboard",            0x60, 0x48 },
-    { "Keyboard 2",          0x60, 0x50 },
-    { "Modulation Wheel",    0x60, 0x58 },
-    { "Foot Pedal",          0x60, 0x60 },
-    { "External Controller", 0x60, 0x68 },
-    { "Pressure",            0x60, 0x70 },
-    { "Off",                 0x60, 0x78 }
+    { "LFO 1",               PARAMETER_DCA2_MOD1_SRC, 0x00 },
+    { "LFO 2",               PARAMETER_DCA2_MOD1_SRC, 0x08 },
+    { "LFO 3",               PARAMETER_DCA2_MOD1_SRC, 0x10 },
+    { "Envelope 1",          PARAMETER_DCA2_MOD1_SRC, 0x18 },
+    { "Envelope 2",          PARAMETER_DCA2_MOD1_SRC, 0x20 },
+    { "Envelope 3",          PARAMETER_DCA2_MOD1_SRC, 0x28 },
+    { "Envelope 4",          PARAMETER_DCA2_MOD1_SRC, 0x30 },
+    { "Velocity",            PARAMETER_DCA2_MOD1_SRC, 0x38 },
+    { "Velocity X",          PARAMETER_DCA2_MOD1_SRC, 0x40 },
+    { "Keyboard",            PARAMETER_DCA2_MOD1_SRC, 0x48 },
+    { "Keyboard 2",          PARAMETER_DCA2_MOD1_SRC, 0x50 },
+    { "Modulation Wheel",    PARAMETER_DCA2_MOD1_SRC, 0x58 },
+    { "Foot Pedal",          PARAMETER_DCA2_MOD1_SRC, 0x60 },
+    { "External Controller", PARAMETER_DCA2_MOD1_SRC, 0x68 },
+    { "Pressure",            PARAMETER_DCA2_MOD1_SRC, 0x70 },
+    { "Off",                 PARAMETER_DCA2_MOD1_SRC, 0x78 }
 };
 
 static ScaleParams dca2_mod1_depth_params = {
-    .parameter = 0x61,
+    .parameter = PARAMETER_DCA2_MOD1_DEPTH,
     .offset = 64
 };
 
 static ComboBoxEntry dca2_mod2_srcs[] = {
-    { "LFO 1",               0x62, 0x00 },
-    { "LFO 2",               0x62, 0x08 },
-    { "LFO 3",               0x62, 0x10 },
-    { "Envelope 1",          0x62, 0x18 },
-    { "Envelope 2",          0x62, 0x20 },
-    { "Envelope 3",          0x62, 0x28 },
-    { "Envelope 4",          0x62, 0x30 },
-    { "Velocity",            0x62, 0x38 },
-    { "Velocity X",          0x62, 0x40 },
-    { "Keyboard",            0x62, 0x48 },
-    { "Keyboard 2",          0x62, 0x50 },
-    { "Modulation Wheel",    0x62, 0x58 },
-    { "Foot Pedal",          0x62, 0x60 },
-    { "External Controller", 0x62, 0x68 },
-    { "Pressure",            0x62, 0x70 },
-    { "Off",                 0x62, 0x78 }
+    { "LFO 1",               PARAMETER_DCA2_MOD2_SRC, 0x00 },
+    { "LFO 2",               PARAMETER_DCA2_MOD2_SRC, 0x08 },
+    { "LFO 3",               PARAMETER_DCA2_MOD2_SRC, 0x10 },
+    { "Envelope 1",          PARAMETER_DCA2_MOD2_SRC, 0x18 },
+    { "Envelope 2",          PARAMETER_DCA2_MOD2_SRC, 0x20 },
+    { "Envelope 3",          PARAMETER_DCA2_MOD2_SRC, 0x28 },
+    { "Envelope 4",          PARAMETER_DCA2_MOD2_SRC, 0x30 },
+    { "Velocity",            PARAMETER_DCA2_MOD2_SRC, 0x38 },
+    { "Velocity X",          PARAMETER_DCA2_MOD2_SRC, 0x40 },
+    { "Keyboard",            PARAMETER_DCA2_MOD2_SRC, 0x48 },
+    { "Keyboard 2",          PARAMETER_DCA2_MOD2_SRC, 0x50 },
+    { "Modulation Wheel",    PARAMETER_DCA2_MOD2_SRC, 0x58 },
+    { "Foot Pedal",          PARAMETER_DCA2_MOD2_SRC, 0x60 },
+    { "External Controller", PARAMETER_DCA2_MOD2_SRC, 0x68 },
+    { "Pressure",            PARAMETER_DCA2_MOD2_SRC, 0x70 },
+    { "Off",                 PARAMETER_DCA2_MOD2_SRC, 0x78 }
 };
 
 static ScaleParams dca2_mod2_depth_params = {
-    .parameter = 0x63,
+    .parameter = PARAMETER_DCA2_MOD2_DEPTH,
     .offset = 64
 };
 
 static ComboBoxEntry dca3_mod1_srcs[] = {
-    { "LFO 1",               0x66, 0x00 },
-    { "LFO 2",               0x66, 0x08 },
-    { "LFO 3",               0x66, 0x10 },
-    { "Envelope 1",          0x66, 0x18 },
-    { "Envelope 2",          0x66, 0x20 },
-    { "Envelope 3",          0x66, 0x28 },
-    { "Envelope 4",          0x66, 0x30 },
-    { "Velocity",            0x66, 0x38 },
-    { "Velocity X",          0x66, 0x40 },
-    { "Keyboard",            0x66, 0x48 },
-    { "Keyboard 2",          0x66, 0x50 },
-    { "Modulation Wheel",    0x66, 0x58 },
-    { "Foot Pedal",          0x66, 0x60 },
-    { "External Controller", 0x66, 0x68 },
-    { "Pressure",            0x66, 0x70 },
-    { "Off",                 0x66, 0x78 }
+    { "LFO 1",               PARAMETER_DCA3_MOD1_SRC, 0x00 },
+    { "LFO 2",               PARAMETER_DCA3_MOD1_SRC, 0x08 },
+    { "LFO 3",               PARAMETER_DCA3_MOD1_SRC, 0x10 },
+    { "Envelope 1",          PARAMETER_DCA3_MOD1_SRC, 0x18 },
+    { "Envelope 2",          PARAMETER_DCA3_MOD1_SRC, 0x20 },
+    { "Envelope 3",          PARAMETER_DCA3_MOD1_SRC, 0x28 },
+    { "Envelope 4",          PARAMETER_DCA3_MOD1_SRC, 0x30 },
+    { "Velocity",            PARAMETER_DCA3_MOD1_SRC, 0x38 },
+    { "Velocity X",          PARAMETER_DCA3_MOD1_SRC, 0x40 },
+    { "Keyboard",            PARAMETER_DCA3_MOD1_SRC, 0x48 },
+    { "Keyboard 2",          PARAMETER_DCA3_MOD1_SRC, 0x50 },
+    { "Modulation Wheel",    PARAMETER_DCA3_MOD1_SRC, 0x58 },
+    { "Foot Pedal",          PARAMETER_DCA3_MOD1_SRC, 0x60 },
+    { "External Controller", PARAMETER_DCA3_MOD1_SRC, 0x68 },
+    { "Pressure",            PARAMETER_DCA3_MOD1_SRC, 0x70 },
+    { "Off",                 PARAMETER_DCA3_MOD1_SRC, 0x78 }
 };
 
 static ScaleParams dca3_mod1_depth_params = {
-    .parameter = 0x67,
+    .parameter = PARAMETER_DCA3_MOD1_DEPTH,
     .offset = 64
 };
 
 static ComboBoxEntry dca3_mod2_srcs[] = {
-    { "LFO 1",               0x68, 0x00 },
-    { "LFO 2",               0x68, 0x08 },
-    { "LFO 3",               0x68, 0x10 },
-    { "Envelope 1",          0x68, 0x18 },
-    { "Envelope 2",          0x68, 0x20 },
-    { "Envelope 3",          0x68, 0x28 },
-    { "Envelope 4",          0x68, 0x30 },
-    { "Velocity",            0x68, 0x38 },
-    { "Velocity X",          0x68, 0x40 },
-    { "Keyboard",            0x68, 0x48 },
-    { "Keyboard 2",          0x68, 0x50 },
-    { "Modulation Wheel",    0x68, 0x58 },
-    { "Foot Pedal",          0x68, 0x60 },
-    { "External Controller", 0x68, 0x68 },
-    { "Pressure",            0x68, 0x70 },
-    { "Off",                 0x68, 0x78 }
+    { "LFO 1",               PARAMETER_DCA3_MOD2_SRC, 0x00 },
+    { "LFO 2",               PARAMETER_DCA3_MOD2_SRC, 0x08 },
+    { "LFO 3",               PARAMETER_DCA3_MOD2_SRC, 0x10 },
+    { "Envelope 1",          PARAMETER_DCA3_MOD2_SRC, 0x18 },
+    { "Envelope 2",          PARAMETER_DCA3_MOD2_SRC, 0x20 },
+    { "Envelope 3",          PARAMETER_DCA3_MOD2_SRC, 0x28 },
+    { "Envelope 4",          PARAMETER_DCA3_MOD2_SRC, 0x30 },
+    { "Velocity",            PARAMETER_DCA3_MOD2_SRC, 0x38 },
+    { "Velocity X",          PARAMETER_DCA3_MOD2_SRC, 0x40 },
+    { "Keyboard",            PARAMETER_DCA3_MOD2_SRC, 0x48 },
+    { "Keyboard 2",          PARAMETER_DCA3_MOD2_SRC, 0x50 },
+    { "Modulation Wheel",    PARAMETER_DCA3_MOD2_SRC, 0x58 },
+    { "Foot Pedal",          PARAMETER_DCA3_MOD2_SRC, 0x60 },
+    { "External Controller", PARAMETER_DCA3_MOD2_SRC, 0x68 },
+    { "Pressure",            PARAMETER_DCA3_MOD2_SRC, 0x70 },
+    { "Off",                 PARAMETER_DCA3_MOD2_SRC, 0x78 }
 };
 
 static ScaleParams dca3_mod2_depth_params = {
-    .parameter = 0x69,
+    .parameter = PARAMETER_DCA3_MOD2_DEPTH,
     .offset = 64
 };
 
@@ -437,6 +437,16 @@ show_oscillators_dialog(OscillatorsDialog *widgets)
 void
 set_oscillators_parameters(OscillatorsDialog *widgets, Patch *patch)
 {
+    printf("Setting OSC1 parameters: octave %d, semitone %d, fine %d, wave %d, mod src1 %d, mod1 depth %d, mod2 src %d, mod2 depth %d\n",
+        patch->parameters[PARAMETER_OSC1_OCTAVE],
+        patch->parameters[PARAMETER_OSC1_SEMITONE],
+        patch->parameters[PARAMETER_OSC1_FINE],
+        patch->parameters[PARAMETER_OSC1_WAVE],
+        patch->parameters[PARAMETER_OSC1_MOD1_SRC],
+        patch->parameters[PARAMETER_OSC1_MOD1_DEPTH],
+        patch->parameters[PARAMETER_OSC1_MOD2_SRC],
+        patch->parameters[PARAMETER_OSC1_MOD2_DEPTH]);
+
     gtk_range_set_value(GTK_RANGE(widgets->osc1.octave), patch->parameters[PARAMETER_OSC1_OCTAVE]);
     gtk_range_set_value(GTK_RANGE(widgets->osc1.semitone), patch->parameters[PARAMETER_OSC1_SEMITONE]);
     gtk_range_set_value(GTK_RANGE(widgets->osc1.fine), patch->parameters[PARAMETER_OSC1_FINE]);
@@ -446,12 +456,30 @@ set_oscillators_parameters(OscillatorsDialog *widgets, Patch *patch)
     gtk_combo_box_set_active(GTK_COMBO_BOX(widgets->osc1.mod2_src), patch->parameters[PARAMETER_OSC1_MOD2_SRC]);
     gtk_range_set_value(GTK_RANGE(widgets->osc1.mod2_depth), patch->parameters[PARAMETER_OSC1_MOD2_DEPTH]);
 
+    printf("Setting DCA1 parameters: level %d, output %d, mod src1 %d, mod1 depth %d, mod2 src %d, mod2 depth %d\n",
+        patch->parameters[PARAMETER_DCA1_LEVEL],
+        patch->parameters[PARAMETER_DCA1_OUTPUT],
+        patch->parameters[PARAMETER_DCA1_MOD1_SRC],
+        patch->parameters[PARAMETER_DCA1_MOD1_DEPTH],
+        patch->parameters[PARAMETER_DCA1_MOD2_SRC],
+        patch->parameters[PARAMETER_DCA1_MOD2_DEPTH]);
+
     gtk_range_set_value(GTK_RANGE(widgets->osc1.dca_level), patch->parameters[PARAMETER_DCA1_LEVEL]);
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(widgets->osc1.dca_output), patch->parameters[PARAMETER_DCA1_OUTPUT] ? TRUE : FALSE);
     gtk_combo_box_set_active(GTK_COMBO_BOX(widgets->osc1.dca_mod1_src), patch->parameters[PARAMETER_DCA1_MOD1_SRC]);
     gtk_range_set_value(GTK_RANGE(widgets->osc1.dca_mod1_depth), patch->parameters[PARAMETER_DCA1_MOD1_DEPTH]);
     gtk_combo_box_set_active(GTK_COMBO_BOX(widgets->osc1.dca_mod2_src), patch->parameters[PARAMETER_DCA1_MOD2_SRC]);
     gtk_range_set_value(GTK_RANGE(widgets->osc1.dca_mod2_depth), patch->parameters[PARAMETER_DCA1_MOD2_DEPTH]);
+
+    printf("Setting OSC2 parameters: octave %d, semitone %d, fine %d, wave %d, mod src1 %d, mod1 depth %d, mod2 src %d, mod2 depth %d\n",
+        patch->parameters[PARAMETER_OSC2_OCTAVE],
+        patch->parameters[PARAMETER_OSC2_SEMITONE],
+        patch->parameters[PARAMETER_OSC2_FINE],
+        patch->parameters[PARAMETER_OSC2_WAVE],
+        patch->parameters[PARAMETER_OSC2_MOD1_SRC],
+        patch->parameters[PARAMETER_OSC2_MOD1_DEPTH],
+        patch->parameters[PARAMETER_OSC2_MOD2_SRC],
+        patch->parameters[PARAMETER_OSC2_MOD2_DEPTH]);
 
     gtk_range_set_value(GTK_RANGE(widgets->osc2.octave), patch->parameters[PARAMETER_OSC2_OCTAVE]);
     gtk_range_set_value(GTK_RANGE(widgets->osc2.semitone), patch->parameters[PARAMETER_OSC2_SEMITONE]);
@@ -462,12 +490,30 @@ set_oscillators_parameters(OscillatorsDialog *widgets, Patch *patch)
     gtk_combo_box_set_active(GTK_COMBO_BOX(widgets->osc2.mod2_src), patch->parameters[PARAMETER_OSC2_MOD2_SRC]);
     gtk_range_set_value(GTK_RANGE(widgets->osc2.mod2_depth), patch->parameters[PARAMETER_OSC2_MOD2_DEPTH]);
 
+    printf("Setting DCA2 parameters: level %d, output %d, mod src1 %d, mod1 depth %d, mod2 src %d, mod2 depth %d\n",
+        patch->parameters[PARAMETER_DCA2_LEVEL],
+        patch->parameters[PARAMETER_DCA2_OUTPUT],
+        patch->parameters[PARAMETER_DCA2_MOD1_SRC],
+        patch->parameters[PARAMETER_DCA2_MOD1_DEPTH],
+        patch->parameters[PARAMETER_DCA2_MOD2_SRC],
+        patch->parameters[PARAMETER_DCA2_MOD2_DEPTH]);
+
     gtk_range_set_value(GTK_RANGE(widgets->osc2.dca_level), patch->parameters[PARAMETER_DCA2_LEVEL]);
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(widgets->osc2.dca_output), patch->parameters[PARAMETER_DCA2_OUTPUT] ? TRUE : FALSE);
     gtk_combo_box_set_active(GTK_COMBO_BOX(widgets->osc2.dca_mod1_src), patch->parameters[PARAMETER_DCA2_MOD1_SRC]);
     gtk_range_set_value(GTK_RANGE(widgets->osc2.dca_mod1_depth), patch->parameters[PARAMETER_DCA2_MOD1_DEPTH]);
     gtk_combo_box_set_active(GTK_COMBO_BOX(widgets->osc2.dca_mod2_src), patch->parameters[PARAMETER_DCA2_MOD2_SRC]);
     gtk_range_set_value(GTK_RANGE(widgets->osc2.dca_mod2_depth), patch->parameters[PARAMETER_DCA2_MOD2_DEPTH]);
+
+    printf("Setting OSC3 parameters: octave %d, semitone %d, fine %d, wave %d, mod src1 %d, mod1 depth %d, mod2 src %d, mod2 depth %d\n",
+        patch->parameters[PARAMETER_OSC3_OCTAVE],
+        patch->parameters[PARAMETER_OSC3_SEMITONE],
+        patch->parameters[PARAMETER_OSC3_FINE],
+        patch->parameters[PARAMETER_OSC3_WAVE],
+        patch->parameters[PARAMETER_OSC3_MOD1_SRC],
+        patch->parameters[PARAMETER_OSC3_MOD1_DEPTH],
+        patch->parameters[PARAMETER_OSC3_MOD2_SRC],
+        patch->parameters[PARAMETER_OSC3_MOD2_DEPTH]);
 
     gtk_range_set_value(GTK_RANGE(widgets->osc3.octave), patch->parameters[PARAMETER_OSC3_OCTAVE]);
     gtk_range_set_value(GTK_RANGE(widgets->osc3.semitone), patch->parameters[PARAMETER_OSC3_SEMITONE]);
@@ -477,6 +523,14 @@ set_oscillators_parameters(OscillatorsDialog *widgets, Patch *patch)
     gtk_range_set_value(GTK_RANGE(widgets->osc3.mod1_depth), patch->parameters[PARAMETER_OSC3_MOD1_DEPTH]);
     gtk_combo_box_set_active(GTK_COMBO_BOX(widgets->osc3.mod2_src), patch->parameters[PARAMETER_OSC3_MOD2_SRC]);
     gtk_range_set_value(GTK_RANGE(widgets->osc3.mod2_depth), patch->parameters[PARAMETER_OSC3_MOD2_DEPTH]);
+
+    printf("Setting DCA3 parameters: level %d, output %d, mod src1 %d, mod1 depth %d, mod2 src %d, mod2 depth %d\n",
+        patch->parameters[PARAMETER_DCA3_LEVEL],
+        patch->parameters[PARAMETER_DCA3_OUTPUT],
+        patch->parameters[PARAMETER_DCA3_MOD1_SRC],
+        patch->parameters[PARAMETER_DCA3_MOD1_DEPTH],
+        patch->parameters[PARAMETER_DCA3_MOD2_SRC],
+        patch->parameters[PARAMETER_DCA3_MOD2_DEPTH]);
 
     gtk_range_set_value(GTK_RANGE(widgets->osc3.dca_level), patch->parameters[PARAMETER_DCA3_LEVEL]);
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(widgets->osc3.dca_output), patch->parameters[PARAMETER_DCA3_OUTPUT] ? TRUE : FALSE);
@@ -549,19 +603,19 @@ create_osc1(Oscillator *osc)
     grid = create_grid(GTK_CONTAINER(frame));
 
     label = gtk_label_new("Octave:");
-    osc->octave = create_hscale(-3, 5, 0x40);
+    osc->octave = create_hscale(-3, 5, PARAMETER_OSC1_OCTAVE);
     create_grid_row(grid, 0, GTK_LABEL(label), GTK_WIDGET(osc->octave));
 
     label = gtk_label_new("Semitone:");
-    osc->semitone = create_hscale(0, 11, 0x41);
+    osc->semitone = create_hscale(0, 11, PARAMETER_OSC1_SEMITONE);
     create_grid_row(grid, 1, GTK_LABEL(label), GTK_WIDGET(osc->semitone));
 
     label = gtk_label_new("Fine:");
-    osc->fine = create_hscale(0, 31, 0x42);
+    osc->fine = create_hscale(0, 31, PARAMETER_OSC1_FINE);
     create_grid_row(grid, 2, GTK_LABEL(label), GTK_WIDGET(osc->fine));
 
     label = gtk_label_new("Wave:");
-    osc->wave = create_combo_box(waves, G_N_ELEMENTS(waves), 0x43);
+    osc->wave = create_combo_box(waves, G_N_ELEMENTS(waves), PARAMETER_OSC1_WAVE);
     create_grid_row(grid, 3, GTK_LABEL(label), GTK_WIDGET(osc->wave));
 
     label = gtk_label_new("Mod 1:");
@@ -594,19 +648,19 @@ create_osc2(Oscillator *osc)
     grid = create_grid(GTK_CONTAINER(frame));
 
     label = gtk_label_new("Octave:");
-    osc->octave = create_hscale(-3, 5, 0x48);
+    osc->octave = create_hscale(-3, 5, PARAMETER_OSC2_OCTAVE);
     create_grid_row(grid, 0, GTK_LABEL(label), GTK_WIDGET(osc->octave));
 
     label = gtk_label_new("Semitone:");
-    osc->semitone = create_hscale(0, 11, 0x49);
+    osc->semitone = create_hscale(0, 11, PARAMETER_OSC2_SEMITONE);
     create_grid_row(grid, 1, GTK_LABEL(label), GTK_WIDGET(osc->semitone));
 
     label = gtk_label_new("Fine:");
-    osc->fine = create_hscale(0, 31, 0x4a);
+    osc->fine = create_hscale(0, 31, PARAMETER_OSC2_FINE);
     create_grid_row(grid, 2, GTK_LABEL(label), GTK_WIDGET(osc->fine));
 
     label = gtk_label_new("Wave:");
-    osc->wave = create_combo_box(waves, G_N_ELEMENTS(waves), 0x4b);
+    osc->wave = create_combo_box(waves, G_N_ELEMENTS(waves), PARAMETER_OSC2_WAVE);
     create_grid_row(grid, 3, GTK_LABEL(label), GTK_WIDGET(osc->wave));
 
     label = gtk_label_new("Mod 1:");
@@ -639,19 +693,19 @@ create_osc3(Oscillator *osc)
     grid = create_grid(GTK_CONTAINER(frame));
 
     label = gtk_label_new("Octave:");
-    osc->octave = create_hscale(-3, 5, 0x50);
+    osc->octave = create_hscale(-3, 5, PARAMETER_OSC3_OCTAVE);
     create_grid_row(grid, 0, GTK_LABEL(label), GTK_WIDGET(osc->octave));
 
     label = gtk_label_new("Semitone:");
-    osc->semitone = create_hscale(0, 11, 0x51);
+    osc->semitone = create_hscale(0, 11, PARAMETER_OSC3_SEMITONE);
     create_grid_row(grid, 1, GTK_LABEL(label), GTK_WIDGET(osc->semitone));
 
     label = gtk_label_new("Fine:");
-    osc->fine = create_hscale(0, 31, 0x52);
+    osc->fine = create_hscale(0, 31, PARAMETER_OSC3_FINE);
     create_grid_row(grid, 2, GTK_LABEL(label), GTK_WIDGET(osc->fine));
 
     label = gtk_label_new("Wave:");
-    osc->wave = create_combo_box(waves, G_N_ELEMENTS(waves), 0x53);
+    osc->wave = create_combo_box(waves, G_N_ELEMENTS(waves), PARAMETER_OSC3_WAVE);
     create_grid_row(grid, 3, GTK_LABEL(label), GTK_WIDGET(osc->wave));
 
     label = gtk_label_new("Mod 1:");
@@ -684,11 +738,11 @@ create_dca1(Oscillator *osc)
     grid = create_grid(GTK_CONTAINER(frame));
 
     label = gtk_label_new("Level:");
-    osc->dca_level = create_hscale(0, 63, 0x58);
+    osc->dca_level = create_hscale(0, 63, PARAMETER_DCA1_LEVEL);
     create_grid_row(grid, 0, GTK_LABEL(label), GTK_WIDGET(osc->dca_level));
 
     label = gtk_label_new("Output:");
-    osc->dca_output = create_check_button(0x59);
+    osc->dca_output = create_check_button(PARAMETER_DCA1_OUTPUT);
     create_grid_row(grid, 1, GTK_LABEL(label), GTK_WIDGET(osc->dca_output));
 
     label = gtk_label_new("Mod 1:");
@@ -721,11 +775,11 @@ create_dca2(Oscillator *osc)
     grid = create_grid(GTK_CONTAINER(frame));
 
     label = gtk_label_new("Level:");
-    osc->dca_level = create_hscale(0, 63, 0x58);
+    osc->dca_level = create_hscale(0, 63, PARAMETER_DCA2_LEVEL);
     create_grid_row(grid, 0, GTK_LABEL(label), GTK_WIDGET(osc->dca_level));
 
     label = gtk_label_new("Output:");
-    osc->dca_output = create_check_button(0x59);
+    osc->dca_output = create_check_button(PARAMETER_DCA2_OUTPUT);
     create_grid_row(grid, 1, GTK_LABEL(label), GTK_WIDGET(osc->dca_output));
 
     label = gtk_label_new("Mod 1:");
@@ -758,11 +812,11 @@ create_dca3(Oscillator *osc)
     grid = create_grid(GTK_CONTAINER(frame));
 
     label = gtk_label_new("Level:");
-    osc->dca_level = create_hscale(0, 63, 0x58);
+    osc->dca_level = create_hscale(0, 63, PARAMETER_DCA3_LEVEL);
     create_grid_row(grid, 0, GTK_LABEL(label), GTK_WIDGET(osc->dca_level));
 
     label = gtk_label_new("Output:");
-    osc->dca_output = create_check_button(0x59);
+    osc->dca_output = create_check_button(PARAMETER_DCA3_OUTPUT);
     create_grid_row(grid, 1, GTK_LABEL(label), GTK_WIDGET(osc->dca_output));
 
     label = gtk_label_new("Mod 1:");

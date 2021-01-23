@@ -21,162 +21,162 @@
 #include "envelopes.h"
 
 static ScaleParams env1_level1_params = {
-    .parameter = 0x00,
+    .parameter = PARAMETER_ENV1_LEVEL1,
     .offset = 64
 };
 
 static ScaleParams env1_level2_params = {
-    .parameter = 0x01,
+    .parameter = PARAMETER_ENV1_LEVEL2,
     .offset = 64
 };
 
 static ScaleParams env1_level3_params = {
-    .parameter = 0x02,
+    .parameter = PARAMETER_ENV1_LEVEL3,
     .offset = 64
 };
 
 static ScaleParams env1_velocity_attack_params = {
-    .parameter = 0x04,
+    .parameter = PARAMETER_ENV1_VELOCITY_ATTACK,
     .multiplier = 2
 };
 
 static ScaleParams env1_time1_params = {
-    .parameter = 0x05,
+    .parameter = PARAMETER_ENV1_TIME1,
     .multiplier = 2
 };
 
 static ScaleParams env1_time2_params = {
-    .parameter = 0x06,
+    .parameter = PARAMETER_ENV1_TIME2,
     .multiplier = 2
 };
 
 static ScaleParams env1_time3_params = {
-    .parameter = 0x07,
+    .parameter = PARAMETER_ENV1_TIME3,
     .multiplier = 2
 };
 
 static ScaleParams env1_keyboard_decay_scaling_params = {
-    .parameter = 0x09,
+    .parameter = PARAMETER_ENV1_KEYBOARD_DECAY_SCALING,
     .multiplier = 2
 };
 
 static ScaleParams env2_level1_params = {
-    .parameter = 0x0a,
+    .parameter = PARAMETER_ENV2_LEVEL1,
     .offset = 64
 };
 
 static ScaleParams env2_level2_params = {
-    .parameter = 0x0b,
+    .parameter = PARAMETER_ENV2_LEVEL2,
     .offset = 64
 };
 
 static ScaleParams env2_level3_params = {
-    .parameter = 0x0c,
+    .parameter = PARAMETER_ENV2_LEVEL3,
     .offset = 64
 };
 
 static ScaleParams env2_velocity_attack_params = {
-    .parameter = 0x0e,
+    .parameter = PARAMETER_ENV2_VELOCITY_ATTACK,
     .multiplier = 2
 };
 
 static ScaleParams env2_time1_params = {
-    .parameter = 0x0f,
+    .parameter = PARAMETER_ENV2_TIME1,
     .multiplier = 2
 };
 
 static ScaleParams env2_time2_params = {
-    .parameter = 0x10,
+    .parameter = PARAMETER_ENV2_TIME2,
     .multiplier = 2
 };
 
 static ScaleParams env2_time3_params = {
-    .parameter = 0x11,
+    .parameter = PARAMETER_ENV2_TIME3,
     .multiplier = 2
 };
 
 static ScaleParams env2_keyboard_decay_scaling_params = {
-    .parameter = 0x13,
+    .parameter = PARAMETER_ENV2_KEYBOARD_DECAY_SCALING,
     .multiplier = 2
 };
 
 static ScaleParams env3_level1_params = {
-    .parameter = 0x14,
+    .parameter = PARAMETER_ENV3_LEVEL1,
     .offset = 64
 };
 
 static ScaleParams env3_level2_params = {
-    .parameter = 0x15,
+    .parameter = PARAMETER_ENV3_LEVEL2,
     .offset = 64
 };
 
 static ScaleParams env3_level3_params = {
-    .parameter = 0x16,
+    .parameter = PARAMETER_ENV3_LEVEL3,
     .offset = 64
 };
 
 static ScaleParams env3_velocity_attack_params = {
-    .parameter = 0x18,
+    .parameter = PARAMETER_ENV3_VELOCITY_ATTACK,
     .multiplier = 2
 };
 
 static ScaleParams env3_time1_params = {
-    .parameter = 0x19,
+    .parameter = PARAMETER_ENV3_TIME1,
     .multiplier = 2
 };
 
 static ScaleParams env3_time2_params = {
-    .parameter = 0x1a,
+    .parameter = PARAMETER_ENV3_TIME2,
     .multiplier = 2
 };
 
 static ScaleParams env3_time3_params = {
-    .parameter = 0x1b,
+    .parameter = PARAMETER_ENV3_TIME3,
     .multiplier = 2
 };
 
 static ScaleParams env3_keyboard_decay_scaling_params = {
-    .parameter = 0x1d,
+    .parameter = PARAMETER_ENV3_KEYBOARD_DECAY_SCALING,
     .multiplier = 2
 };
 
 static ScaleParams env4_level1_params = {
-    .parameter = 0x1e,
+    .parameter = PARAMETER_ENV4_LEVEL1,
     .offset = 64
 };
 
 static ScaleParams env4_level2_params = {
-    .parameter = 0x1f,
+    .parameter = PARAMETER_ENV4_LEVEL2,
     .offset = 64
 };
 
 static ScaleParams env4_level3_params = {
-    .parameter = 0x20,
+    .parameter = PARAMETER_ENV4_LEVEL3,
     .offset = 64
 };
 
 static ScaleParams env4_velocity_attack_params = {
-    .parameter = 0x22,
+    .parameter = PARAMETER_ENV4_VELOCITY_ATTACK,
     .multiplier = 2
 };
 
 static ScaleParams env4_time1_params = {
-    .parameter = 0x23,
+    .parameter = PARAMETER_ENV4_TIME1,
     .multiplier = 2
 };
 
 static ScaleParams env4_time2_params = {
-    .parameter = 0x24,
+    .parameter = PARAMETER_ENV4_TIME2,
     .multiplier = 2
 };
 
 static ScaleParams env4_time3_params = {
-    .parameter = 0x25,
+    .parameter = PARAMETER_ENV4_TIME3,
     .multiplier = 2
 };
 
 static ScaleParams env4_keyboard_decay_scaling_params = {
-    .parameter = 0x27,
+    .parameter = PARAMETER_ENV4_KEYBOARD_DECAY_SCALING,
     .multiplier = 2
 };
 
@@ -408,7 +408,7 @@ create_envelope1(Envelope *env)
     create_grid_row(grid, 3, GTK_LABEL(label), GTK_WIDGET(env->level3));
 
     label = gtk_label_new("Velocity Level:");
-    env->velocity_level = create_hscale(0, 127, 0x03);
+    env->velocity_level = create_hscale(0, 127, PARAMETER_ENV1_VELOCITY_LEVEL);
     create_grid_row(grid, 4, GTK_LABEL(label), GTK_WIDGET(env->velocity_level));
 
     label = gtk_label_new("(0 - 63 linear, 64 - 127 exponential)");
@@ -434,7 +434,7 @@ create_envelope1(Envelope *env)
     create_grid_row(grid, 9, GTK_LABEL(label), GTK_WIDGET(env->time3));
 
     label = gtk_label_new("Time 4:");
-    env->time4 = create_hscale(0, 127, 0x08);
+    env->time4 = create_hscale(0, 127, PARAMETER_ENV1_TIME4);
     g_signal_connect(G_OBJECT(env->time4), "value-changed", G_CALLBACK(envelope_callback), env);
     create_grid_row(grid, 10, GTK_LABEL(label), GTK_WIDGET(env->time4));
 
@@ -483,7 +483,7 @@ create_envelope2(Envelope *env)
     create_grid_row(grid, 3, GTK_LABEL(label), GTK_WIDGET(env->level3));
 
     label = gtk_label_new("Velocity Level:");
-    env->velocity_level = create_hscale(0, 127, 0x0d);
+    env->velocity_level = create_hscale(0, 127, PARAMETER_ENV2_VELOCITY_LEVEL);
     create_grid_row(grid, 4, GTK_LABEL(label), GTK_WIDGET(env->velocity_level));
 
     label = gtk_label_new("(0 - 63 linear, 64 - 127 exponential)");
@@ -509,7 +509,7 @@ create_envelope2(Envelope *env)
     create_grid_row(grid, 9, GTK_LABEL(label), GTK_WIDGET(env->time3));
 
     label = gtk_label_new("Time 4:");
-    env->time4 = create_hscale(0, 127, 0x12);
+    env->time4 = create_hscale(0, 127, PARAMETER_ENV2_TIME4);
     g_signal_connect(G_OBJECT(env->time4), "value-changed", G_CALLBACK(envelope_callback), env);
     create_grid_row(grid, 10, GTK_LABEL(label), GTK_WIDGET(env->time4));
 
@@ -558,7 +558,7 @@ create_envelope3(Envelope *env)
     create_grid_row(grid, 3, GTK_LABEL(label), GTK_WIDGET(env->level3));
 
     label = gtk_label_new("Velocity Level:");
-    env->velocity_level = create_hscale(0, 127, 0x17);
+    env->velocity_level = create_hscale(0, 127, PARAMETER_ENV3_VELOCITY_LEVEL);
     create_grid_row(grid, 4, GTK_LABEL(label), GTK_WIDGET(env->velocity_level));
 
     label = gtk_label_new("(0 - 63 linear, 64 - 127 exponential)");
@@ -584,7 +584,7 @@ create_envelope3(Envelope *env)
     create_grid_row(grid, 9, GTK_LABEL(label), GTK_WIDGET(env->time3));
 
     label = gtk_label_new("Time 4:");
-    env->time4 = create_hscale(0, 127, 0x1c);
+    env->time4 = create_hscale(0, 127, PARAMETER_ENV3_TIME4);
     g_signal_connect(G_OBJECT(env->time4), "value-changed", G_CALLBACK(envelope_callback), env);
     create_grid_row(grid, 10, GTK_LABEL(label), GTK_WIDGET(env->time4));
 
@@ -633,7 +633,7 @@ create_envelope4(Envelope *env)
     create_grid_row(grid, 3, GTK_LABEL(label), GTK_WIDGET(env->level3));
 
     label = gtk_label_new("Velocity Level:");
-    env->velocity_level = create_hscale(0, 127, 0x21);
+    env->velocity_level = create_hscale(0, 127, PARAMETER_ENV4_VELOCITY_LEVEL);
     create_grid_row(grid, 4, GTK_LABEL(label), GTK_WIDGET(env->velocity_level));
 
     label = gtk_label_new("(0 - 63 linear, 64 - 127 exponential)");
@@ -659,7 +659,7 @@ create_envelope4(Envelope *env)
     create_grid_row(grid, 9, GTK_LABEL(label), GTK_WIDGET(env->time3));
 
     label = gtk_label_new("Time 4:");
-    env->time4 = create_hscale(0, 127, 0x26);
+    env->time4 = create_hscale(0, 127, PARAMETER_ENV4_TIME4);
     g_signal_connect(G_OBJECT(env->time4), "value-changed", G_CALLBACK(envelope_callback), env);
     create_grid_row(grid, 10, GTK_LABEL(label), GTK_WIDGET(env->time4));
 

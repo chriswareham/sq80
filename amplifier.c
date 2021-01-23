@@ -21,36 +21,36 @@
 #include "amplifier.h"
 
 static ScaleParams env4_depth_params = {
-    .parameter = 0x6a,
+    .parameter = PARAMETER_DCA4_ENV4_DEPTH,
     .multiplier = 2
 };
 
 static ScaleParams pan_params = {
-    .parameter = 0x6b,
+    .parameter = PARAMETER_DCA4_PAN,
     .multiplier = 8
 };
 
-static ComboBoxEntry mod_srcs[] = {
-    { "LFO 1",               0x6c, 0x00 },
-    { "LFO 2",               0x6c, 0x08 },
-    { "LFO 3",               0x6c, 0x10 },
-    { "Envelope 1",          0x6c, 0x18 },
-    { "Envelope 2",          0x6c, 0x20 },
-    { "Envelope 3",          0x6c, 0x28 },
-    { "Envelope 4",          0x6c, 0x30 },
-    { "Velocity",            0x6c, 0x38 },
-    { "Velocity X",          0x6c, 0x40 },
-    { "Keyboard",            0x6c, 0x48 },
-    { "Keyboard 2",          0x6c, 0x50 },
-    { "Modulation Wheel",    0x6c, 0x58 },
-    { "Foot Pedal",          0x6c, 0x60 },
-    { "External Controller", 0x6c, 0x68 },
-    { "Pressure",            0x6c, 0x70 },
-    { "Off",                 0x6c, 0x78 }
+static ComboBoxEntry pan_mod_srcs[] = {
+    { "LFO 1",               PARAMETER_DCA4_MOD_SRC, 0x00 },
+    { "LFO 2",               PARAMETER_DCA4_MOD_SRC, 0x08 },
+    { "LFO 3",               PARAMETER_DCA4_MOD_SRC, 0x10 },
+    { "Envelope 1",          PARAMETER_DCA4_MOD_SRC, 0x18 },
+    { "Envelope 2",          PARAMETER_DCA4_MOD_SRC, 0x20 },
+    { "Envelope 3",          PARAMETER_DCA4_MOD_SRC, 0x28 },
+    { "Envelope 4",          PARAMETER_DCA4_MOD_SRC, 0x30 },
+    { "Velocity",            PARAMETER_DCA4_MOD_SRC, 0x38 },
+    { "Velocity X",          PARAMETER_DCA4_MOD_SRC, 0x40 },
+    { "Keyboard",            PARAMETER_DCA4_MOD_SRC, 0x48 },
+    { "Keyboard 2",          PARAMETER_DCA4_MOD_SRC, 0x50 },
+    { "Modulation Wheel",    PARAMETER_DCA4_MOD_SRC, 0x58 },
+    { "Foot Pedal",          PARAMETER_DCA4_MOD_SRC, 0x60 },
+    { "External Controller", PARAMETER_DCA4_MOD_SRC, 0x68 },
+    { "Pressure",            PARAMETER_DCA4_MOD_SRC, 0x70 },
+    { "Off",                 PARAMETER_DCA4_MOD_SRC, 0x78 }
 };
 
 static ScaleParams pan_mod_depth_params = {
-    .parameter = 0x6d,
+    .parameter = PARAMETER_DCA4_MOD_DEPTH,
     .offset = 64
 };
 
@@ -76,7 +76,7 @@ new_amplifier_dialog(GtkWindow *parent)
     create_grid_row(grid, 1, GTK_LABEL(label), GTK_WIDGET(widgets->pan));
 
     label = gtk_label_new("Pan Mod:");
-    widgets->mod_src = create_combo_box_with_entries(mod_srcs, G_N_ELEMENTS(mod_srcs));
+    widgets->mod_src = create_combo_box_with_entries(pan_mod_srcs, G_N_ELEMENTS(pan_mod_srcs));
     create_grid_row(grid, 2, GTK_LABEL(label), GTK_WIDGET(widgets->mod_src));
 
     label = gtk_label_new("Pan Mod Depth:");
@@ -104,7 +104,7 @@ show_amplifier_dialog(AmplifierDialog *widgets)
 void
 set_amplifier_parameters(AmplifierDialog *widgets, Patch *patch)
 {
-    printf("Setting amplifier parameters: pan %d, env4 depth %d, mod src %d, mod depth %d\n",
+    printf("Setting DCA4 parameters: pan %d, env4 depth %d, mod src %d, mod depth %d\n",
         patch->parameters[PARAMETER_DCA4_PAN],
         patch->parameters[PARAMETER_DCA4_ENV4_DEPTH],
         patch->parameters[PARAMETER_DCA4_MOD_SRC],

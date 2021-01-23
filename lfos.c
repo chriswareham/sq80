@@ -21,141 +21,141 @@
 #include "lfos.h"
 
 static ScaleParams lfo1_frequency_params = {
-    .parameter = 0x28,
+    .parameter = PARAMETER_LFO1_FREQUENCY,
     .multiplier = 2
 };
 
 static ComboBoxEntry lfo1_waves[] = {
-    { "Triangle", 0x2b, 0x00 },
-    { "Sawtooth", 0x2b, 0x20 },
-    { "Square",   0x2b, 0x40 },
-    { "Noise",    0x2b, 0x60 }
+    { "Triangle", PARAMETER_LFO1_WAVE, 0x00 },
+    { "Sawtooth", PARAMETER_LFO1_WAVE, 0x20 },
+    { "Square",   PARAMETER_LFO1_WAVE, 0x40 },
+    { "Noise",    PARAMETER_LFO1_WAVE, 0x60 }
 };
 
 static ScaleParams lfo1_initial_level_params = {
-    .parameter = 0x2c,
+    .parameter = PARAMETER_LFO1_INITIAL_LEVEL,
     .multiplier = 2
 };
 
 static ScaleParams lfo1_delay_params = {
-    .parameter = 0x2d,
+    .parameter = PARAMETER_LFO1_DELAY,
     .multiplier = 2
 };
 
 static ScaleParams lfo1_final_level_params = {
-    .parameter = 0x2e,
+    .parameter = PARAMETER_LFO1_FINAL_LEVEL,
     .multiplier = 2
 };
 
 static ComboBoxEntry lfo1_mod_srcs[] = {
-    { "LFO 1",               0x2f, 0x00 },
-    { "LFO 2",               0x2f, 0x08 },
-    { "LFO 3",               0x2f, 0x10 },
-    { "Envelope 1",          0x2f, 0x18 },
-    { "Envelope 2",          0x2f, 0x20 },
-    { "Envelope 3",          0x2f, 0x28 },
-    { "Envelope 4",          0x2f, 0x30 },
-    { "Velocity",            0x2f, 0x38 },
-    { "Velocity X",          0x2f, 0x40 },
-    { "Keyboard",            0x2f, 0x48 },
-    { "Keyboard 2",          0x2f, 0x50 },
-    { "Modulation Wheel",    0x2f, 0x58 },
-    { "Foot Pedal",          0x2f, 0x60 },
-    { "External Controller", 0x2f, 0x68 },
-    { "Pressure",            0x2f, 0x70 },
-    { "Off",                 0x2f, 0x78 }
+    { "LFO 1",               PARAMETER_LFO1_MOD_SRC, 0x00 },
+    { "LFO 2",               PARAMETER_LFO1_MOD_SRC, 0x08 },
+    { "LFO 3",               PARAMETER_LFO1_MOD_SRC, 0x10 },
+    { "Envelope 1",          PARAMETER_LFO1_MOD_SRC, 0x18 },
+    { "Envelope 2",          PARAMETER_LFO1_MOD_SRC, 0x20 },
+    { "Envelope 3",          PARAMETER_LFO1_MOD_SRC, 0x28 },
+    { "Envelope 4",          PARAMETER_LFO1_MOD_SRC, 0x30 },
+    { "Velocity",            PARAMETER_LFO1_MOD_SRC, 0x38 },
+    { "Velocity X",          PARAMETER_LFO1_MOD_SRC, 0x40 },
+    { "Keyboard",            PARAMETER_LFO1_MOD_SRC, 0x48 },
+    { "Keyboard 2",          PARAMETER_LFO1_MOD_SRC, 0x50 },
+    { "Modulation Wheel",    PARAMETER_LFO1_MOD_SRC, 0x58 },
+    { "Foot Pedal",          PARAMETER_LFO1_MOD_SRC, 0x60 },
+    { "External Controller", PARAMETER_LFO1_MOD_SRC, 0x68 },
+    { "Pressure",            PARAMETER_LFO1_MOD_SRC, 0x70 },
+    { "Off",                 PARAMETER_LFO1_MOD_SRC, 0x78 }
 };
 
 static ScaleParams lfo2_frequency_params = {
-    .parameter = 0x30,
+    .parameter = PARAMETER_LFO2_FREQUENCY,
     .multiplier = 2
 };
 
 static ComboBoxEntry lfo2_waves[] = {
-    { "Triangle", 0x33, 0x00 },
-    { "Sawtooth", 0x33, 0x20 },
-    { "Square",   0x33, 0x40 },
-    { "Noise",    0x33, 0x60 }
+    { "Triangle", PARAMETER_LFO2_WAVE, 0x00 },
+    { "Sawtooth", PARAMETER_LFO2_WAVE, 0x20 },
+    { "Square",   PARAMETER_LFO2_WAVE, 0x40 },
+    { "Noise",    PARAMETER_LFO2_WAVE, 0x60 }
 };
 
 static ScaleParams lfo2_initial_level_params = {
-    .parameter = 0x34,
+    .parameter = PARAMETER_LFO2_INITIAL_LEVEL,
     .multiplier = 2
 };
 
 static ScaleParams lfo2_delay_params = {
-    .parameter = 0x35,
+    .parameter = PARAMETER_LFO2_DELAY,
     .multiplier = 2
 };
 
 static ScaleParams lfo2_final_level_params = {
-    .parameter = 0x36,
+    .parameter = PARAMETER_LFO2_FINAL_LEVEL,
     .multiplier = 2
 };
 
 static ComboBoxEntry lfo2_mod_srcs[] = {
-    { "LFO 1",               0x37, 0x00 },
-    { "LFO 2",               0x37, 0x08 },
-    { "LFO 3",               0x37, 0x10 },
-    { "Envelope 1",          0x37, 0x18 },
-    { "Envelope 2",          0x37, 0x20 },
-    { "Envelope 3",          0x37, 0x28 },
-    { "Envelope 4",          0x37, 0x30 },
-    { "Velocity",            0x37, 0x38 },
-    { "Velocity X",          0x37, 0x40 },
-    { "Keyboard",            0x37, 0x48 },
-    { "Keyboard 2",          0x37, 0x50 },
-    { "Modulation Wheel",    0x37, 0x58 },
-    { "Foot Pedal",          0x37, 0x60 },
-    { "External Controller", 0x37, 0x68 },
-    { "Pressure",            0x37, 0x70 },
-    { "Off",                 0x37, 0x78 }
+    { "LFO 1",               PARAMETER_LFO2_MOD_SRC, 0x00 },
+    { "LFO 2",               PARAMETER_LFO2_MOD_SRC, 0x08 },
+    { "LFO 3",               PARAMETER_LFO2_MOD_SRC, 0x10 },
+    { "Envelope 1",          PARAMETER_LFO2_MOD_SRC, 0x18 },
+    { "Envelope 2",          PARAMETER_LFO2_MOD_SRC, 0x20 },
+    { "Envelope 3",          PARAMETER_LFO2_MOD_SRC, 0x28 },
+    { "Envelope 4",          PARAMETER_LFO2_MOD_SRC, 0x30 },
+    { "Velocity",            PARAMETER_LFO2_MOD_SRC, 0x38 },
+    { "Velocity X",          PARAMETER_LFO2_MOD_SRC, 0x40 },
+    { "Keyboard",            PARAMETER_LFO2_MOD_SRC, 0x48 },
+    { "Keyboard 2",          PARAMETER_LFO2_MOD_SRC, 0x50 },
+    { "Modulation Wheel",    PARAMETER_LFO2_MOD_SRC, 0x58 },
+    { "Foot Pedal",          PARAMETER_LFO2_MOD_SRC, 0x60 },
+    { "External Controller", PARAMETER_LFO2_MOD_SRC, 0x68 },
+    { "Pressure",            PARAMETER_LFO2_MOD_SRC, 0x70 },
+    { "Off",                 PARAMETER_LFO2_MOD_SRC, 0x78 }
 };
 
 static ScaleParams lfo3_frequency_params = {
-    .parameter = 0x38,
+    .parameter = PARAMETER_LFO3_FREQUENCY,
     .multiplier = 2
 };
 
 static ComboBoxEntry lfo3_waves[] = {
-    { "Triangle", 0x3b, 0x00 },
-    { "Sawtooth", 0x3b, 0x20 },
-    { "Square",   0x3b, 0x40 },
-    { "Noise",    0x3b, 0x60 }
+    { "Triangle", PARAMETER_LFO3_WAVE, 0x00 },
+    { "Sawtooth", PARAMETER_LFO3_WAVE, 0x20 },
+    { "Square",   PARAMETER_LFO3_WAVE, 0x40 },
+    { "Noise",    PARAMETER_LFO3_WAVE, 0x60 }
 };
 
 static ScaleParams lfo3_initial_level_params = {
-    .parameter = 0x3c,
+    .parameter = PARAMETER_LFO3_INITIAL_LEVEL,
     .multiplier = 2
 };
 
 static ScaleParams lfo3_delay_params = {
-    .parameter = 0x3d,
+    .parameter = PARAMETER_LFO3_DELAY,
     .multiplier = 2
 };
 
 static ScaleParams lfo3_final_level_params = {
-    .parameter = 0x3e,
+    .parameter = PARAMETER_LFO3_FINAL_LEVEL,
     .multiplier = 2
 };
 
 static ComboBoxEntry lfo3_mod_srcs[] = {
-    { "LFO 1",               0x3f, 0x00 },
-    { "LFO 2",               0x3f, 0x08 },
-    { "LFO 3",               0x3f, 0x10 },
-    { "Envelope 1",          0x3f, 0x18 },
-    { "Envelope 2",          0x3f, 0x20 },
-    { "Envelope 3",          0x3f, 0x28 },
-    { "Envelope 4",          0x3f, 0x30 },
-    { "Velocity",            0x3f, 0x38 },
-    { "Velocity X",          0x3f, 0x40 },
-    { "Keyboard",            0x3f, 0x48 },
-    { "Keyboard 2",          0x3f, 0x50 },
-    { "Modulation Wheel",    0x3f, 0x58 },
-    { "Foot Pedal",          0x3f, 0x60 },
-    { "External Controller", 0x3f, 0x68 },
-    { "Pressure",            0x3f, 0x70 },
-    { "Off",                 0x3f, 0x78 }
+    { "LFO 1",               PARAMETER_LFO3_MOD_SRC, 0x00 },
+    { "LFO 2",               PARAMETER_LFO3_MOD_SRC, 0x08 },
+    { "LFO 3",               PARAMETER_LFO3_MOD_SRC, 0x10 },
+    { "Envelope 1",          PARAMETER_LFO3_MOD_SRC, 0x18 },
+    { "Envelope 2",          PARAMETER_LFO3_MOD_SRC, 0x20 },
+    { "Envelope 3",          PARAMETER_LFO3_MOD_SRC, 0x28 },
+    { "Envelope 4",          PARAMETER_LFO3_MOD_SRC, 0x30 },
+    { "Velocity",            PARAMETER_LFO3_MOD_SRC, 0x38 },
+    { "Velocity X",          PARAMETER_LFO3_MOD_SRC, 0x40 },
+    { "Keyboard",            PARAMETER_LFO3_MOD_SRC, 0x48 },
+    { "Keyboard 2",          PARAMETER_LFO3_MOD_SRC, 0x50 },
+    { "Modulation Wheel",    PARAMETER_LFO3_MOD_SRC, 0x58 },
+    { "Foot Pedal",          PARAMETER_LFO3_MOD_SRC, 0x60 },
+    { "External Controller", PARAMETER_LFO3_MOD_SRC, 0x68 },
+    { "Pressure",            PARAMETER_LFO3_MOD_SRC, 0x70 },
+    { "Off",                 PARAMETER_LFO3_MOD_SRC, 0x78 }
 };
 
 static GtkWidget *create_lfo1(Lfo *);
@@ -304,11 +304,11 @@ create_lfo1(Lfo *lfo)
     create_grid_row(grid, 0, GTK_LABEL(label), GTK_WIDGET(lfo->frequency));
 
     label = gtk_label_new("Reset:");
-    lfo->reset = create_check_button(0x29);
+    lfo->reset = create_check_button(PARAMETER_LFO1_RESET);
     create_grid_row(grid, 1, GTK_LABEL(label), GTK_WIDGET(lfo->reset));
 
     label = gtk_label_new("Human:");
-    lfo->human = create_check_button(0x2a);
+    lfo->human = create_check_button(PARAMETER_LFO1_HUMAN);
     create_grid_row(grid, 2, GTK_LABEL(label), GTK_WIDGET(lfo->human));
 
     label = gtk_label_new("Wave:");
@@ -349,11 +349,11 @@ create_lfo2(Lfo *lfo)
     create_grid_row(grid, 0, GTK_LABEL(label), GTK_WIDGET(lfo->frequency));
 
     label = gtk_label_new("Reset:");
-    lfo->reset = create_check_button(0x31);
+    lfo->reset = create_check_button(PARAMETER_LFO2_RESET);
     create_grid_row(grid, 1, GTK_LABEL(label), GTK_WIDGET(lfo->reset));
 
     label = gtk_label_new("Human:");
-    lfo->human = create_check_button(0x32);
+    lfo->human = create_check_button(PARAMETER_LFO2_HUMAN);
     create_grid_row(grid, 2, GTK_LABEL(label), GTK_WIDGET(lfo->human));
 
     label = gtk_label_new("Wave:");
@@ -394,11 +394,11 @@ create_lfo3(Lfo *lfo)
     create_grid_row(grid, 0, GTK_LABEL(label), GTK_WIDGET(lfo->frequency));
 
     label = gtk_label_new("Reset:");
-    lfo->reset = create_check_button(0x39);
+    lfo->reset = create_check_button(PARAMETER_LFO3_RESET);
     create_grid_row(grid, 1, GTK_LABEL(label), GTK_WIDGET(lfo->reset));
 
     label = gtk_label_new("Human:");
-    lfo->human = create_check_button(0x3a);
+    lfo->human = create_check_button(PARAMETER_LFO3_HUMAN);
     create_grid_row(grid, 2, GTK_LABEL(label), GTK_WIDGET(lfo->human));
 
     label = gtk_label_new("Wave:");

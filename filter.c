@@ -21,60 +21,60 @@
 #include "filter.h"
 
 static ScaleParams resonance_params = {
-    .parameter = 0x6f,
+    .parameter = PARAMETER_FILTER_RESONANCE,
     .multiplier = 4
 };
 
 static ScaleParams keyboard_tracking_params = {
-    .parameter = 0x70,
+    .parameter = PARAMETER_FILTER_KEYBOARD_TRACKING,
     .multiplier = 2
 };
 
 static ComboBoxEntry mod1_srcs[] = {
-    { "LFO 1",               0x71, 0x00 },
-    { "LFO 2",               0x71, 0x08 },
-    { "LFO 3",               0x71, 0x10 },
-    { "Envelope 1",          0x71, 0x18 },
-    { "Envelope 2",          0x71, 0x20 },
-    { "Envelope 3",          0x71, 0x28 },
-    { "Envelope 4",          0x71, 0x30 },
-    { "Velocity",            0x71, 0x38 },
-    { "Velocity X",          0x71, 0x40 },
-    { "Keyboard",            0x71, 0x48 },
-    { "Keyboard 2",          0x71, 0x50 },
-    { "Modulation Wheel",    0x71, 0x58 },
-    { "Foot Pedal",          0x71, 0x60 },
-    { "External Controller", 0x71, 0x68 },
-    { "Pressure",            0x71, 0x70 },
-    { "Off",                 0x71, 0x78 }
+    { "LFO 1",               PARAMETER_FILTER_MOD1_SRC, 0x00 },
+    { "LFO 2",               PARAMETER_FILTER_MOD1_SRC, 0x08 },
+    { "LFO 3",               PARAMETER_FILTER_MOD1_SRC, 0x10 },
+    { "Envelope 1",          PARAMETER_FILTER_MOD1_SRC, 0x18 },
+    { "Envelope 2",          PARAMETER_FILTER_MOD1_SRC, 0x20 },
+    { "Envelope 3",          PARAMETER_FILTER_MOD1_SRC, 0x28 },
+    { "Envelope 4",          PARAMETER_FILTER_MOD1_SRC, 0x30 },
+    { "Velocity",            PARAMETER_FILTER_MOD1_SRC, 0x38 },
+    { "Velocity X",          PARAMETER_FILTER_MOD1_SRC, 0x40 },
+    { "Keyboard",            PARAMETER_FILTER_MOD1_SRC, 0x48 },
+    { "Keyboard 2",          PARAMETER_FILTER_MOD1_SRC, 0x50 },
+    { "Modulation Wheel",    PARAMETER_FILTER_MOD1_SRC, 0x58 },
+    { "Foot Pedal",          PARAMETER_FILTER_MOD1_SRC, 0x60 },
+    { "External Controller", PARAMETER_FILTER_MOD1_SRC, 0x68 },
+    { "Pressure",            PARAMETER_FILTER_MOD1_SRC, 0x70 },
+    { "Off",                 PARAMETER_FILTER_MOD1_SRC, 0x78 }
 };
 
 static ScaleParams mod1_depth_params = {
-    .parameter = 0x72,
+    .parameter = PARAMETER_FILTER_MOD1_DEPTH,
     .offset = 64
 };
 
 static ComboBoxEntry mod2_srcs[] = {
-    { "LFO 1",               0x73, 0x00 },
-    { "LFO 2",               0x73, 0x08 },
-    { "LFO 3",               0x73, 0x10 },
-    { "Envelope 1",          0x73, 0x18 },
-    { "Envelope 2",          0x73, 0x20 },
-    { "Envelope 3",          0x73, 0x28 },
-    { "Envelope 4",          0x73, 0x30 },
-    { "Velocity",            0x73, 0x38 },
-    { "Velocity X",          0x73, 0x40 },
-    { "Keyboard",            0x73, 0x48 },
-    { "Keyboard 2",          0x73, 0x50 },
-    { "Modulation Wheel",    0x73, 0x58 },
-    { "Foot Pedal",          0x73, 0x60 },
-    { "External Controller", 0x73, 0x68 },
-    { "Pressure",            0x73, 0x70 },
-    { "Off",                 0x73, 0x78 }
+    { "LFO 1",               PARAMETER_FILTER_MOD2_SRC, 0x00 },
+    { "LFO 2",               PARAMETER_FILTER_MOD2_SRC, 0x08 },
+    { "LFO 3",               PARAMETER_FILTER_MOD2_SRC, 0x10 },
+    { "Envelope 1",          PARAMETER_FILTER_MOD2_SRC, 0x18 },
+    { "Envelope 2",          PARAMETER_FILTER_MOD2_SRC, 0x20 },
+    { "Envelope 3",          PARAMETER_FILTER_MOD2_SRC, 0x28 },
+    { "Envelope 4",          PARAMETER_FILTER_MOD2_SRC, 0x30 },
+    { "Velocity",            PARAMETER_FILTER_MOD2_SRC, 0x38 },
+    { "Velocity X",          PARAMETER_FILTER_MOD2_SRC, 0x40 },
+    { "Keyboard",            PARAMETER_FILTER_MOD2_SRC, 0x48 },
+    { "Keyboard 2",          PARAMETER_FILTER_MOD2_SRC, 0x50 },
+    { "Modulation Wheel",    PARAMETER_FILTER_MOD2_SRC, 0x58 },
+    { "Foot Pedal",          PARAMETER_FILTER_MOD2_SRC, 0x60 },
+    { "External Controller", PARAMETER_FILTER_MOD2_SRC, 0x68 },
+    { "Pressure",            PARAMETER_FILTER_MOD2_SRC, 0x70 },
+    { "Off",                 PARAMETER_FILTER_MOD2_SRC, 0x78 }
 };
 
 static ScaleParams mod2_depth_params = {
-    .parameter = 0x74,
+    .parameter = PARAMETER_FILTER_MOD2_DEPTH,
     .offset = 64
 };
 
@@ -92,7 +92,7 @@ new_filter_dialog(GtkWindow *parent)
     grid = create_grid(GTK_CONTAINER(widgets->dialog));
 
     label = gtk_label_new("Frequency:");
-    widgets->frequency = create_hscale(0, 127, 0x6e);
+    widgets->frequency = create_hscale(0, 127, PARAMETER_FILTER_FREQUENCY);
     create_grid_row(grid, 0, GTK_LABEL(label), GTK_WIDGET(widgets->frequency));
 
     label = gtk_label_new("Resonance:");

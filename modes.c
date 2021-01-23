@@ -21,7 +21,7 @@
 #include "modes.h"
 
 static ScaleParams glide_params = {
-    .parameter = 0x76,
+    .parameter = PARAMETER_GLIDE,
     .multiplier = 2
 };
 
@@ -40,7 +40,7 @@ new_modes_dialog(GtkWindow *parent)
     grid = create_grid(GTK_CONTAINER(widgets->dialog));
 
     label = gtk_label_new("Amplitude Modulation:");
-    widgets->amplitude_modulation = create_check_button(0x75);
+    widgets->amplitude_modulation = create_check_button(PARAMETER_AMPLITUDE_MODULATION);
     create_grid_row(grid, 0, GTK_LABEL(label), GTK_WIDGET(widgets->amplitude_modulation));
 
     label = gtk_label_new("Glide:");
@@ -48,27 +48,27 @@ new_modes_dialog(GtkWindow *parent)
     create_grid_row(grid, 1, GTK_LABEL(label), GTK_WIDGET(widgets->glide));
 
     label = gtk_label_new("Mono:");
-    widgets->mono = create_check_button(0x77);
+    widgets->mono = create_check_button(PARAMETER_MONO);
     create_grid_row(grid, 2, GTK_LABEL(label), GTK_WIDGET(widgets->mono));
 
     label = gtk_label_new("Sync:");
-    widgets->sync = create_check_button(0x78);
+    widgets->sync = create_check_button(PARAMETER_SYNC);
     create_grid_row(grid, 3, GTK_LABEL(label), GTK_WIDGET(widgets->sync));
 
     label = gtk_label_new("Voice Restart:");
-    widgets->voice_restart = create_check_button(0x79);
+    widgets->voice_restart = create_check_button(PARAMETER_VOICE_RESTART);
     create_grid_row(grid, 4, GTK_LABEL(label), GTK_WIDGET(widgets->voice_restart));
 
     label = gtk_label_new("Envelope Restart:");
-    widgets->envelope_restart = create_check_button(0x7a);
+    widgets->envelope_restart = create_check_button(PARAMETER_ENVELOPE_RESTART);
     create_grid_row(grid, 5, GTK_LABEL(label), GTK_WIDGET(widgets->envelope_restart));
 
     label = gtk_label_new("Oscillator Restart:");
-    widgets->oscillator_restart = create_check_button(0x7b);
+    widgets->oscillator_restart = create_check_button(PARAMETER_OSCILLATOR_RESTART);
     create_grid_row(grid, 6, GTK_LABEL(label), GTK_WIDGET(widgets->oscillator_restart));
 
     label = gtk_label_new("Envelope Full Cycle:");
-    widgets->envelope_full_cycle = create_check_button(0x7c);
+    widgets->envelope_full_cycle = create_check_button(PARAMETER_ENVELOPE_FULL_CYCLE);
     create_grid_row(grid, 7, GTK_LABEL(label), GTK_WIDGET(widgets->envelope_full_cycle));
 
     button_box = gtk_button_box_new(GTK_ORIENTATION_HORIZONTAL);
