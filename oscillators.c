@@ -100,6 +100,22 @@ static gchar *waves[] = {
     "Drums 5"
 };
 
+static ScaleParams osc1_octave_params = {
+    .parameter = PARAMETER_OSC1_OCTAVE,
+    .multiplier = 14,
+    .offset = 4
+};
+
+static ScaleParams osc1_semitone_params = {
+    .parameter = PARAMETER_OSC1_SEMITONE,
+    .multiplier = 11
+};
+
+static ScaleParams osc1_fine_params = {
+    .parameter = PARAMETER_OSC1_FINE,
+    .multiplier = 4
+};
+
 static ComboBoxEntry osc1_mod1_srcs[] = {
     { "LFO 1",               PARAMETER_OSC1_MOD1_SRC, 0x00 },
     { "LFO 2",               PARAMETER_OSC1_MOD1_SRC, 0x08 },
@@ -146,6 +162,22 @@ static ComboBoxEntry osc1_mod2_srcs[] = {
 static ScaleParams osc1_mod2_depth_params = {
     .parameter = PARAMETER_OSC1_MOD2_DEPTH,
     .offset = 64
+};
+
+static ScaleParams osc2_octave_params = {
+    .parameter = PARAMETER_OSC2_OCTAVE,
+    .multiplier = 14,
+    .offset = 4
+};
+
+static ScaleParams osc2_semitone_params = {
+    .parameter = PARAMETER_OSC2_SEMITONE,
+    .multiplier = 11
+};
+
+static ScaleParams osc2_fine_params = {
+    .parameter = PARAMETER_OSC2_FINE,
+    .multiplier = 4
 };
 
 static ComboBoxEntry osc2_mod1_srcs[] = {
@@ -196,6 +228,22 @@ static ScaleParams osc2_mod2_depth_params = {
     .offset = 64
 };
 
+static ScaleParams osc3_octave_params = {
+    .parameter = PARAMETER_OSC3_OCTAVE,
+    .multiplier = 14,
+    .offset = 4
+};
+
+static ScaleParams osc3_semitone_params = {
+    .parameter = PARAMETER_OSC3_SEMITONE,
+    .multiplier = 11
+};
+
+static ScaleParams osc3_fine_params = {
+    .parameter = PARAMETER_OSC3_FINE,
+    .multiplier = 4
+};
+
 static ComboBoxEntry osc3_mod1_srcs[] = {
     { "LFO 1",               PARAMETER_OSC3_MOD1_SRC, 0x00 },
     { "LFO 2",               PARAMETER_OSC3_MOD1_SRC, 0x08 },
@@ -244,6 +292,11 @@ static ScaleParams osc3_mod2_depth_params = {
     .offset = 64
 };
 
+static ScaleParams dca1_level_params = {
+    .parameter = PARAMETER_DCA1_LEVEL,
+    .multiplier = 2
+};
+
 static ComboBoxEntry dca1_mod1_srcs[] = {
     { "LFO 1",               PARAMETER_DCA1_MOD1_SRC, 0x00 },
     { "LFO 2",               PARAMETER_DCA1_MOD1_SRC, 0x08 },
@@ -288,8 +341,13 @@ static ComboBoxEntry dca1_mod2_srcs[] = {
 };
 
 static ScaleParams dca1_mod2_depth_params = {
-    .parameter = PARAMETER_DCA2_MOD1_DEPTH,
+    .parameter = PARAMETER_DCA1_MOD2_DEPTH,
     .offset = 64
+};
+
+static ScaleParams dca2_level_params = {
+    .parameter = PARAMETER_DCA2_LEVEL,
+    .multiplier = 2
 };
 
 static ComboBoxEntry dca2_mod1_srcs[] = {
@@ -338,6 +396,11 @@ static ComboBoxEntry dca2_mod2_srcs[] = {
 static ScaleParams dca2_mod2_depth_params = {
     .parameter = PARAMETER_DCA2_MOD2_DEPTH,
     .offset = 64
+};
+
+static ScaleParams dca3_level_params = {
+    .parameter = PARAMETER_DCA3_LEVEL,
+    .multiplier = 2
 };
 
 static ComboBoxEntry dca3_mod1_srcs[] = {
@@ -603,15 +666,15 @@ create_osc1(Oscillator *osc)
     grid = create_grid(GTK_CONTAINER(frame));
 
     label = gtk_label_new("Octave:");
-    osc->octave = create_hscale(-3, 5, PARAMETER_OSC1_OCTAVE);
+    osc->octave = create_hscale_with_params(-3, 5, &osc1_octave_params);
     create_grid_row(grid, 0, GTK_LABEL(label), GTK_WIDGET(osc->octave));
 
     label = gtk_label_new("Semitone:");
-    osc->semitone = create_hscale(0, 11, PARAMETER_OSC1_SEMITONE);
+    osc->semitone = create_hscale_with_params(0, 11, &osc1_semitone_params);
     create_grid_row(grid, 1, GTK_LABEL(label), GTK_WIDGET(osc->semitone));
 
     label = gtk_label_new("Fine:");
-    osc->fine = create_hscale(0, 31, PARAMETER_OSC1_FINE);
+    osc->fine = create_hscale_with_params(0, 31, &osc1_fine_params);
     create_grid_row(grid, 2, GTK_LABEL(label), GTK_WIDGET(osc->fine));
 
     label = gtk_label_new("Wave:");
@@ -648,15 +711,15 @@ create_osc2(Oscillator *osc)
     grid = create_grid(GTK_CONTAINER(frame));
 
     label = gtk_label_new("Octave:");
-    osc->octave = create_hscale(-3, 5, PARAMETER_OSC2_OCTAVE);
+    osc->octave = create_hscale_with_params(-3, 5, &osc2_octave_params);
     create_grid_row(grid, 0, GTK_LABEL(label), GTK_WIDGET(osc->octave));
 
     label = gtk_label_new("Semitone:");
-    osc->semitone = create_hscale(0, 11, PARAMETER_OSC2_SEMITONE);
+    osc->semitone = create_hscale_with_params(0, 11, &osc2_semitone_params);
     create_grid_row(grid, 1, GTK_LABEL(label), GTK_WIDGET(osc->semitone));
 
     label = gtk_label_new("Fine:");
-    osc->fine = create_hscale(0, 31, PARAMETER_OSC2_FINE);
+    osc->fine = create_hscale_with_params(0, 31, &osc2_fine_params);
     create_grid_row(grid, 2, GTK_LABEL(label), GTK_WIDGET(osc->fine));
 
     label = gtk_label_new("Wave:");
@@ -693,15 +756,15 @@ create_osc3(Oscillator *osc)
     grid = create_grid(GTK_CONTAINER(frame));
 
     label = gtk_label_new("Octave:");
-    osc->octave = create_hscale(-3, 5, PARAMETER_OSC3_OCTAVE);
+    osc->octave = create_hscale_with_params(-3, 5, &osc3_octave_params);
     create_grid_row(grid, 0, GTK_LABEL(label), GTK_WIDGET(osc->octave));
 
     label = gtk_label_new("Semitone:");
-    osc->semitone = create_hscale(0, 11, PARAMETER_OSC3_SEMITONE);
+    osc->semitone = create_hscale_with_params(0, 11, &osc3_semitone_params);
     create_grid_row(grid, 1, GTK_LABEL(label), GTK_WIDGET(osc->semitone));
 
     label = gtk_label_new("Fine:");
-    osc->fine = create_hscale(0, 31, PARAMETER_OSC3_FINE);
+    osc->fine = create_hscale_with_params(0, 31, &osc3_fine_params);
     create_grid_row(grid, 2, GTK_LABEL(label), GTK_WIDGET(osc->fine));
 
     label = gtk_label_new("Wave:");
@@ -738,7 +801,7 @@ create_dca1(Oscillator *osc)
     grid = create_grid(GTK_CONTAINER(frame));
 
     label = gtk_label_new("Level:");
-    osc->dca_level = create_hscale(0, 63, PARAMETER_DCA1_LEVEL);
+    osc->dca_level = create_hscale_with_params(0, 63, &dca1_level_params);
     create_grid_row(grid, 0, GTK_LABEL(label), GTK_WIDGET(osc->dca_level));
 
     label = gtk_label_new("Output:");
@@ -770,12 +833,12 @@ create_dca2(Oscillator *osc)
     GtkWidget *frame, *label;
     GtkGrid *grid;
 
-    frame = gtk_frame_new("DCA 1");
+    frame = gtk_frame_new("DCA 2");
 
     grid = create_grid(GTK_CONTAINER(frame));
 
     label = gtk_label_new("Level:");
-    osc->dca_level = create_hscale(0, 63, PARAMETER_DCA2_LEVEL);
+    osc->dca_level = create_hscale_with_params(0, 63, &dca2_level_params);
     create_grid_row(grid, 0, GTK_LABEL(label), GTK_WIDGET(osc->dca_level));
 
     label = gtk_label_new("Output:");
@@ -812,7 +875,7 @@ create_dca3(Oscillator *osc)
     grid = create_grid(GTK_CONTAINER(frame));
 
     label = gtk_label_new("Level:");
-    osc->dca_level = create_hscale(0, 63, PARAMETER_DCA3_LEVEL);
+    osc->dca_level = create_hscale_with_params(0, 63, &dca3_level_params);
     create_grid_row(grid, 0, GTK_LABEL(label), GTK_WIDGET(osc->dca_level));
 
     label = gtk_label_new("Output:");

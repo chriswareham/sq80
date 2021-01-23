@@ -1,5 +1,4 @@
 Pass channel around rather than NRPNs always being sent on channel one.
 Update status bar on device change.
-Test oscillators screen.
 Test modes screen.
 Complete envelopes graphic display.
