@@ -30,6 +30,7 @@
 #include "filter.h"
 #include "envelopes.h"
 #include "amplifier.h"
+#include "modes.h"
 #include "xmlparser.h"
 
 Patch *current_patch = NULL;
@@ -43,6 +44,7 @@ typedef struct {
     GtkWidget *filter_menu_item;
     GtkWidget *envelopes_menu_item;
     GtkWidget *amplifier_menu_item;
+    GtkWidget *modes_menu_item;
     GtkWidget *tree_view;
     GtkWidget *statusbar;
     guint statusbar_context_id;
@@ -51,6 +53,7 @@ typedef struct {
     FilterDialog *filter_dialog;
     EnvelopesDialog *envelopes_dialog;
     AmplifierDialog *amplifier_dialog;
+    ModesDialog *modes_dialog;
 } MainWidgets;
 
 static GtkWidget *create_file_menu(MainWidgets *);
@@ -62,6 +65,7 @@ static void show_lfos_dialog_callback(GtkWidget *, gpointer);
 static void show_filter_dialog_callback(GtkWidget *, gpointer);
 static void show_envelopes_dialog_callback(GtkWidget *, gpointer);
 static void show_amplifier_dialog_callback(GtkWidget *, gpointer);
+static void show_modes_dialog_callback(GtkWidget *, gpointer);
 static void show_callback(GtkWidget *, gpointer);
 static void new_callback(GtkWidget *, gpointer);
 static void open_callback(GtkWidget *, gpointer);
@@ -130,6 +134,7 @@ main(int argc, char *argv[])
     widgets.filter_dialog = new_filter_dialog(GTK_WINDOW(widgets.window));
     widgets.envelopes_dialog = new_envelopes_dialog(GTK_WINDOW(widgets.window));
     widgets.amplifier_dialog = new_amplifier_dialog(GTK_WINDOW(widgets.window));
+    widgets.modes_dialog = new_modes_dialog(GTK_WINDOW(widgets.window));
 
     gtk_widget_show_all(widgets.window);
 
@@ -217,6 +222,11 @@ create_edit_menu(MainWidgets *widgets)
     gtk_widget_set_sensitive(GTK_WIDGET(widgets->amplifier_menu_item), FALSE);
     gtk_menu_shell_append(GTK_MENU_SHELL(menu), widgets->amplifier_menu_item);
 
+    widgets->modes_menu_item = gtk_menu_item_new_with_mnemonic("_Modes...");
+    g_signal_connect(G_OBJECT(widgets->modes_menu_item), "activate", G_CALLBACK(show_modes_dialog_callback), widgets);
+    gtk_widget_set_sensitive(GTK_WIDGET(widgets->modes_menu_item), FALSE);
+    gtk_menu_shell_append(GTK_MENU_SHELL(menu), widgets->modes_menu_item);
+
     return menu;
 }
 
@@ -264,12 +274,14 @@ tree_view_callback(GtkTreeSelection *selection, gpointer data)
         set_filter_parameters(widgets->filter_dialog, current_patch);
         set_envelopes_parameters(widgets->envelopes_dialog, current_patch);
         set_amplifier_parameters(widgets->amplifier_dialog, current_patch);
+        set_modes_parameters(widgets->modes_dialog, current_patch);
 
         gtk_widget_set_sensitive(GTK_WIDGET(widgets->oscillators_menu_item), TRUE);
         gtk_widget_set_sensitive(GTK_WIDGET(widgets->lfos_menu_item), TRUE);
         gtk_widget_set_sensitive(GTK_WIDGET(widgets->filter_menu_item), TRUE);
         gtk_widget_set_sensitive(GTK_WIDGET(widgets->envelopes_menu_item), TRUE);
         gtk_widget_set_sensitive(GTK_WIDGET(widgets->amplifier_menu_item), TRUE);
+        gtk_widget_set_sensitive(GTK_WIDGET(widgets->modes_menu_item), TRUE);
     } else {
         current_patch = NULL;
 
@@ -278,12 +290,14 @@ tree_view_callback(GtkTreeSelection *selection, gpointer data)
         clear_filter_parameters(widgets->filter_dialog);
         clear_envelopes_parameters(widgets->envelopes_dialog);
         clear_amplifier_parameters(widgets->amplifier_dialog);
+        clear_modes_parameters(widgets->modes_dialog);
 
         gtk_widget_set_sensitive(GTK_WIDGET(widgets->oscillators_menu_item), FALSE);
         gtk_widget_set_sensitive(GTK_WIDGET(widgets->lfos_menu_item), FALSE);
         gtk_widget_set_sensitive(GTK_WIDGET(widgets->filter_menu_item), FALSE);
         gtk_widget_set_sensitive(GTK_WIDGET(widgets->envelopes_menu_item), FALSE);
         gtk_widget_set_sensitive(GTK_WIDGET(widgets->amplifier_menu_item), FALSE);
+        gtk_widget_set_sensitive(GTK_WIDGET(widgets->modes_menu_item), FALSE);
     }
 }
 
@@ -320,6 +334,14 @@ show_amplifier_dialog_callback(GtkWidget *widget, gpointer data)
 {
     MainWidgets *widgets = data;
     show_amplifier_dialog(widgets->amplifier_dialog);
+}
+
+
+static void
+show_modes_dialog_callback(GtkWidget *widget, gpointer data)
+{
+    MainWidgets *widgets = data;
+    show_modes_dialog(widgets->modes_dialog);
 }
 
 static void

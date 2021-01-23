@@ -119,6 +119,8 @@ create_hscale(gint minimum, gint maximum, gint parameter)
     GtkWidget *hscale;
 
     hscale = gtk_scale_new_with_range(GTK_ORIENTATION_HORIZONTAL, minimum, maximum, 1);
+    gtk_widget_set_hexpand(hscale, TRUE);
+    gtk_widget_set_halign(hscale, GTK_ALIGN_FILL);
     g_signal_connect(G_OBJECT(hscale), "button-release-event", G_CALLBACK(hscale_callback), GINT_TO_POINTER(parameter));
     g_signal_connect(G_OBJECT(hscale), "key-release-event", G_CALLBACK(hscale_callback), GINT_TO_POINTER(parameter));
 
@@ -139,6 +141,8 @@ create_hscale_with_params(gint minimum, gint maximum, ScaleParams *params)
     GtkWidget *hscale;
 
     hscale = gtk_scale_new_with_range(GTK_ORIENTATION_HORIZONTAL, minimum, maximum, 1);
+    gtk_widget_set_hexpand(hscale, TRUE);
+    gtk_widget_set_halign(hscale, GTK_ALIGN_FILL);
     g_signal_connect(G_OBJECT(hscale), "button-release-event", G_CALLBACK(hscale_callback_with_params), params);
     g_signal_connect(G_OBJECT(hscale), "key-release-event", G_CALLBACK(hscale_callback_with_params), params);
 
