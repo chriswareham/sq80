@@ -23,7 +23,7 @@ clean :
 	-rm -f *.o *.core sq80
 
 dist : clean
-	cd .. && tar cvzf sq80-$(VERSION).tar.gz --exclude CVS sq80
+	cd .. && tar cvzf sq80-$(VERSION).tar.gz --exclude .git sq80
 
 main.o: main.h midi.h dialog.h device.h oscillators.h lfos.h filter.h envelopes.h amplifier.h modes.h xmlparser.h
 midi.o: midi.h
