@@ -406,9 +406,26 @@ new_callback(GtkWidget *widget, gpointer data)
         patch->name = g_strdup(gtk_entry_get_text(GTK_ENTRY(name)));
         patch->type = g_strdup(gtk_entry_get_text(GTK_ENTRY(type)));
 
+        patch->parameters[PARAMETER_OSC1_MOD1_SRC] = 15;
+        patch->parameters[PARAMETER_OSC1_MOD2_SRC] = 15;
+
+        patch->parameters[PARAMETER_OSC2_MOD1_SRC] = 15;
+        patch->parameters[PARAMETER_OSC2_MOD2_SRC] = 15;
+
+        patch->parameters[PARAMETER_OSC3_MOD1_SRC] = 15;
+        patch->parameters[PARAMETER_OSC3_MOD2_SRC] = 15;
+
         patch->parameters[PARAMETER_DCA1_OUTPUT] = 1;
+        patch->parameters[PARAMETER_DCA1_MOD1_SRC] = 15;
+        patch->parameters[PARAMETER_DCA1_MOD2_SRC] = 15;
+
         patch->parameters[PARAMETER_DCA2_OUTPUT] = 1;
+        patch->parameters[PARAMETER_DCA2_MOD1_SRC] = 15;
+        patch->parameters[PARAMETER_DCA2_MOD2_SRC] = 15;
+
         patch->parameters[PARAMETER_DCA3_OUTPUT] = 1;
+        patch->parameters[PARAMETER_DCA3_MOD1_SRC] = 15;
+        patch->parameters[PARAMETER_DCA3_MOD2_SRC] = 15;
 
         patch->parameters[PARAMETER_LFO1_MOD_SRC] = 15;
         patch->parameters[PARAMETER_LFO2_MOD_SRC] = 15;

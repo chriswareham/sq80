@@ -110,6 +110,11 @@ static ScaleParams env3_level2_params = {
     .offset = 64
 };
 
+static ScaleParams env3_level3_params = {
+    .parameter = 0x16,
+    .offset = 64
+};
+
 static ScaleParams env3_velocity_attack_params = {
     .parameter = 0x18,
     .multiplier = 2
@@ -128,11 +133,6 @@ static ScaleParams env3_time2_params = {
 static ScaleParams env3_time3_params = {
     .parameter = 0x1b,
     .multiplier = 2
-};
-
-static ScaleParams env3_level3_params = {
-    .parameter = 0x16,
-    .offset = 64
 };
 
 static ScaleParams env3_keyboard_decay_scaling_params = {
