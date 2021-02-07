@@ -17,6 +17,6 @@
 #ifndef DEVICE_H
 #define DEVICE_H
 
-void device_dialog(GtkWidget *, gpointer);
+void device_dialog(GtkWindow *, Statusbar *);
 
 #endif /* !DEVICE_H */

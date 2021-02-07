@@ -47,7 +47,7 @@ static void note_on_callback(GtkWidget *, gpointer);
 static void note_off_callback(GtkWidget *, gpointer);
 
 void
-device_dialog(GtkWidget *widget, gpointer data)
+device_dialog(GtkWindow *window, Statusbar *statusbar)
 {
     static DeviceWidgets *widgets = NULL;
     GtkGrid *grid;
@@ -56,13 +56,13 @@ device_dialog(GtkWidget *widget, gpointer data)
     if (widgets == NULL) {
         widgets = g_new(DeviceWidgets, 1);
 
-        widgets->dialog = create_window(GTK_WINDOW(data), "Device", TRUE);
+        widgets->dialog = create_window(window, "Device", TRUE);
 
         grid = create_grid(GTK_CONTAINER(widgets->dialog));
 
         label = gtk_label_new("Device:");
         widgets->device = device_combo_box();
-        g_signal_connect(G_OBJECT(widgets->device), "changed", G_CALLBACK(device_callback), NULL);
+        g_signal_connect(G_OBJECT(widgets->device), "changed", G_CALLBACK(device_callback), statusbar);
         create_grid_row(grid, 0, GTK_LABEL(label), widgets->device);
 
         label = gtk_label_new("Channel:");
@@ -175,20 +175,20 @@ device_callback(GtkWidget *widget, gpointer data)
 {
     gint i;
     MIDIDevice **midi_devices;
+    Statusbar *statusbar;
+
+    statusbar = data;
 
     i = gtk_combo_box_get_active(GTK_COMBO_BOX(widget));
 
     if (i != -1) {
         midi_close();
         midi_devices = midi_get_devices();
-        midi_open(midi_devices[i]);
-/* TODO :
-        if (midi_open(midi_devices[i]->device)) {
-            update_statusbar(statusbar, context_id, "MIDI device %s", midi_devices[i]->name);
+        if (midi_open(midi_devices[i])) {
+            update_statusbar(statusbar, midi_devices[i]->name);
         } else {
-            update_statusbar(statusbar, context_id, "MIDI device : none");
+            update_statusbar(statusbar, "None");
         }
-*/
     }
 }
 

@@ -14,9 +14,6 @@
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
 
-#include <errno.h>
-#include <stdarg.h>
-#include <string.h>
 #include <glib.h>
 #include <glib/gprintf.h>
 #include <gtk/gtk.h>
@@ -46,8 +43,7 @@ typedef struct {
     GtkWidget *amplifier_menu_item;
     GtkWidget *modes_menu_item;
     GtkWidget *tree_view;
-    GtkWidget *statusbar;
-    guint statusbar_context_id;
+    Statusbar statusbar;
     OscillatorsDialog *oscillators_dialog;
     LfosDialog *lfos_dialog;
     FilterDialog *filter_dialog;
@@ -60,6 +56,7 @@ static GtkWidget *create_file_menu(MainWidgets *);
 static GtkWidget *create_edit_menu(MainWidgets *);
 static GtkWidget *create_tree_view(MainWidgets *);
 static void tree_view_callback(GtkTreeSelection *, gpointer);
+static void show_device_dialog_callback(GtkWidget *, gpointer);
 static void show_oscillators_dialog_callback(GtkWidget *, gpointer);
 static void show_lfos_dialog_callback(GtkWidget *, gpointer);
 static void show_filter_dialog_callback(GtkWidget *, gpointer);
@@ -74,7 +71,6 @@ static void close_callback(GtkWidget *, gpointer);
 static void quit_callback(GtkWidget *, gpointer);
 static void destroy_callback(GtkWidget *, gpointer);
 static void insert_patch(GtkWidget *, Patch *);
-static void update_statusbar(MainWidgets *, const gchar *, ...);
 
 int
 main(int argc, char *argv[])
@@ -125,9 +121,9 @@ main(int argc, char *argv[])
     widgets.tree_view = create_tree_view(&widgets);
     gtk_container_add(GTK_CONTAINER(scrolled_window), widgets.tree_view);
 
-    widgets.statusbar = gtk_statusbar_new();
-    widgets.statusbar_context_id = gtk_statusbar_get_context_id( GTK_STATUSBAR(widgets.statusbar), "MIDI device");
-    gtk_box_pack_start(GTK_BOX(vbox), widgets.statusbar, FALSE, TRUE, 0);
+    widgets.statusbar.statusbar = gtk_statusbar_new();
+    widgets.statusbar.statusbar_context_id = gtk_statusbar_get_context_id(GTK_STATUSBAR(widgets.statusbar.statusbar), "MIDI device");
+    gtk_box_pack_start(GTK_BOX(vbox), widgets.statusbar.statusbar, FALSE, TRUE, 0);
 
     widgets.oscillators_dialog = new_oscillators_dialog(GTK_WINDOW(widgets.window));
     widgets.lfos_dialog = new_lfos_dialog(GTK_WINDOW(widgets.window));
@@ -141,6 +137,20 @@ main(int argc, char *argv[])
     gtk_main();
 
     return 0;
+}
+
+void
+update_statusbar(Statusbar *statusbar, const gchar *device)
+{
+    gchar *str;
+
+    gtk_statusbar_pop(GTK_STATUSBAR(statusbar->statusbar), statusbar->statusbar_context_id);
+
+    str = g_strdup_printf("MIDI device : %s", device);
+
+    gtk_statusbar_push(GTK_STATUSBAR(statusbar->statusbar), statusbar->statusbar_context_id, str);
+
+    g_free(str);
 }
 
 static GtkWidget *
@@ -188,7 +198,7 @@ create_edit_menu(MainWidgets *widgets)
 
     menu_item = gtk_menu_item_new_with_mnemonic("_Device...");
     if (midi_get_device_count() > 0) {
-        g_signal_connect(G_OBJECT(menu_item), "activate", G_CALLBACK(device_dialog), widgets->window);
+        g_signal_connect(G_OBJECT(menu_item), "activate", G_CALLBACK(show_device_dialog_callback), widgets);
     } else {
         gtk_widget_set_sensitive(GTK_WIDGET(menu_item), FALSE);
     }
@@ -302,6 +312,13 @@ tree_view_callback(GtkTreeSelection *selection, gpointer data)
 }
 
 static void
+show_device_dialog_callback(GtkWidget *widget, gpointer data)
+{
+    MainWidgets *widgets = data;
+    device_dialog(GTK_WINDOW(widgets->window), &widgets->statusbar);
+}
+
+static void
 show_oscillators_dialog_callback(GtkWidget *widget, gpointer data)
 {
     MainWidgets *widgets = data;
@@ -365,10 +382,10 @@ show_callback(GtkWidget *widget, gpointer data)
 
     midi_devices = midi_get_devices();
 
-    if (midi_get_device_count() && midi_open(midi_devices[0])) {
-        update_statusbar(widgets, "MIDI device %s", midi_devices[0]->name);
+    if (midi_get_device_count() > 0 && midi_open(midi_devices[0])) {
+        update_statusbar(&widgets->statusbar, midi_devices[0]->name);
     } else {
-        update_statusbar(widgets, "MIDI device : none");
+        update_statusbar(&widgets->statusbar, "None");
     }
 }
 
@@ -625,23 +642,4 @@ insert_patch(GtkWidget *tree_view, Patch *new_patch)
 
     selection = gtk_tree_view_get_selection(GTK_TREE_VIEW(tree_view));
     gtk_tree_selection_select_iter(GTK_TREE_SELECTION(selection), &new_iter);
-}
-
-void
-update_statusbar(MainWidgets *widgets, const gchar *fmt, ...)
-{
-    va_list args;
-    gchar *str;
-
-    gtk_statusbar_pop(GTK_STATUSBAR(widgets->statusbar), widgets->statusbar_context_id);
-
-    va_start(args, fmt);
-
-    g_vasprintf(&str, fmt, args);
-
-    gtk_statusbar_push(GTK_STATUSBAR(widgets->statusbar), widgets->statusbar_context_id, str);
-
-    g_free(str);
-
-    va_end(args);
 }

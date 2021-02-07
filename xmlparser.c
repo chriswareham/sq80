@@ -20,6 +20,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <glib.h>
+#include <gtk/gtk.h>
 
 #include "main.h"
 #include "xmlparser.h"
