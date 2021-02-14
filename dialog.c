@@ -110,7 +110,7 @@ create_grid_row(GtkGrid *grid, gint row, GtkLabel *label, GtkWidget *widget)
 
    \param minimum - the minumum value of the patch parameter.
    \param maximum - the maximum value of the patch parameter.
-   \param parameter - the NRPN of the parameter.
+   \param parameter - the patch parameter.
    \return the newly created horizontal scale widget.
  */
 GtkScale *
@@ -154,7 +154,7 @@ create_hscale_with_params(gint minimum, gint maximum, ScaleParams *params)
 
    \param entries - the array of strings to populate the combo box with.
    \param entry_count - the length of the array of strings.
-   \param parameter - the NRPN of the parameter.
+   \param parameter - the patch parameter.
    \return the newly created combo box widget.
  */
 GtkComboBox *
@@ -168,7 +168,7 @@ create_combo_box(gchar *entries[], gint entry_count, gint parameter)
 
     store = gtk_list_store_new(1, G_TYPE_STRING);
 
-    for (i = 0; i < entry_count; i++) {
+    for (i = 0; i < entry_count; ++i) {
         gtk_list_store_append(store, &iter);
         gtk_list_store_set(store, &iter, 0, entries[i], -1);
     }
@@ -201,7 +201,7 @@ create_combo_box_with_entries(ComboBoxEntry *entries, gint entry_count)
 
     store = gtk_list_store_new(1, G_TYPE_STRING);
 
-    for (i = 0; i < entry_count; i++) {
+    for (i = 0; i < entry_count; ++i) {
         gtk_list_store_append(store, &iter);
         gtk_list_store_set(store, &iter, 0, entries[i].label, -1);
     }
@@ -219,7 +219,7 @@ create_combo_box_with_entries(ComboBoxEntry *entries, gint entry_count)
 /**
    \brief Creates a check button widget to edit a patch parameter.
 
-   \param parameter - the NRPN of the parameter.
+   \param parameter - the patch parameter.
    \return the newly created check button widget.
  */
 GtkCheckButton *
