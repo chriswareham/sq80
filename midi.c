@@ -242,7 +242,7 @@ midi_write(MIDIMessage *messages, unsigned count)
 
     for (int i = 0; i < count; ++i) {
         PmError err = Pm_WriteShort(output, 0, Pm_Message(messages[i].status, messages[i].data1, messages[i].data2));
-        
+
         if (err != pmNoError) {
             fprintf(stderr, "Unable send messages: %s\n", Pm_GetErrorText(err));
             return 0;
